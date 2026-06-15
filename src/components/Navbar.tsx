@@ -47,7 +47,7 @@ export default function Navbar({
 
           <div className="hidden lg:flex items-center gap-4">
             <a href="#contacto" className="btn-primary">
-              Agenda una Consulta
+              Agenda una reunón
               <ArrowRight className="w-4 h-4 ml-2" />
             </a>
           </div>

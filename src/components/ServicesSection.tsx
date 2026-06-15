@@ -1,83 +1,128 @@
-import { Code2, Brain, Workflow, Database, Shield, Settings, CheckCircle } from 'lucide-react';
+import { Code2, Target, Globe, Bot, Brain, Workflow, Database, Shield, Map, Check, ArrowRight, LucideIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const services = [
+type Service = {
+  Icon: LucideIcon;
+  title: string;
+  description: string;
+  link: string;
+};
+
+const services: Service[] = [
   {
-    icon: <Code2 className="w-7 h-7" />,
-    title: 'Desarrollo de Software',
-    description: 'Aplicaciones web y móviles personalizadas con arquitecturas escalables y código de calidad empresarial.',
-    features: ['Arquitectura en la nube', 'APIs robustas', 'Integraciones'],
+    Icon: Target,
+    title: 'Landing Pages',
+    description:
+      'Diseñamos páginas optimizadas para captar leads, aumentar conversiones y maximizar el rendimiento de tus campañas.',
+    link: 'LandingPages'
   },
   {
-    icon: <Brain className="w-7 h-7" />,
-    title: 'Inteligencia Artificial',
-    description: 'Modelos de IA adaptados a tu negocio para automatizar decisiones y extraer valor de tus datos.',
-    features: ['Machine Learning', 'Procesamiento de lenguaje', 'Visión computacional'],
+    Icon: Globe,
+    title: 'Desarrollo Web',
+    description:
+      'Creamos sitios web modernos, rápidos y profesionales que fortalecen tu presencia digital y generan confianza.',
+    link: 'DesarrolloWeb'
   },
   {
-    icon: <Workflow className="w-7 h-7" />,
-    title: 'Automatización',
-    description: 'Flujos de trabajo automatizados que reducen tareas manuales y eliminan cuellos de botella.',
-    features: ['Workflows inteligentes', 'RPA', 'Integraciones API'],
+    Icon: Code2,
+    title: 'Aplicaciones Web',
+    description:
+      'Desarrollamos plataformas y sistemas personalizados que optimizan procesos, centralizan información y mejoran la productividad.',
+    link: 'AplicacionesWeb'
   },
   {
-    icon: <Database className="w-7 h-7" />,
-    title: 'Plataformas de Datos',
-    description: 'Infraestructura de datos moderna para análisis en tiempo real y decisiones informadas.',
-    features: ['Data lakes', 'ETL/ELT', 'Business Intelligence'],
+    Icon: Workflow,
+    title: 'Automatizaciones',
+    description:
+      'Automatizamos tareas repetitivas y conectamos tus herramientas para ahorrar tiempo, reducir margen de error y mejorar la eficiencia.',
+    link: 'Automatizaciones'
   },
   {
-    icon: <Shield className="w-7 h-7" />,
-    title: 'Ciberseguridad',
-    description: 'Protección de activos digitales con auditorías, monitoreo y respuesta a incidentes.',
-    features: ['Auditorías de seguridad', 'Monitoreo 24/7', 'Cumplimiento normativo'],
+    Icon: Bot,
+    title: 'Chatbots Inteligentes',
+    description:
+      'Automatiza la atención al cliente, responde consultas al instante y captura oportunidades las 24 horas del día.',
+    link: 'ChatbotsInteligentes'
   },
   {
-    icon: <Settings className="w-7 h-7" />,
-    title: 'Consultoría Tecnológica',
-    description: 'Asesoramiento estratégico para transformar tu infraestructura tecnológica.',
-    features: ['Roadmaps digitales', 'Arquitectura', 'Optimización de costos'],
+    Icon: Brain,
+    title: 'Agentes de IA',
+    description:
+      'Implementamos agentes inteligentes capaces de analizar información, ejecutar tareas y optimizar procesos de forma autónoma.',
+    link: 'AgentesDeIA'
   },
 ];
 
 export default function ServicesSection() {
+
+  const navigate = useNavigate()
+
   return (
     <section id="servicios" className="py-24 lg:py-32 relative">
       <div className="absolute inset-0 dot-pattern opacity-30" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+        {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4 animate-on-scroll">
+          <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 animate-on-scroll">
             Nuestros Servicios
           </p>
           <h2 className="section-title mb-6 animate-on-scroll">
-            Soluciones tecnológicas que{' '}
-            <span className="text-accent">impulsan resultados</span>
+            Tecnología que impulsa el{' '}
+            <span className="text-accent">crecimiento de tu negocio</span>
           </h2>
           <p className="section-subtitle mx-auto animate-on-scroll">
-            Combinamos experiencia técnica con visión estratégica para crear soluciones que transforman operaciones empresariales.
+            Desarrollamos soluciones digitales que optimizan procesos, fortalecen tu
+            presencia online y ayudan a tu negocio a crecer de forma limpia y ordenada.
           </p>
         </div>
 
+        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
+          {services.map(({ Icon, title, description, link }, index) => (
             <div
               key={index}
-              className="card-elevated group animate-on-scroll"
+              className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-6 flex flex-col
+                         hover:border-accent/40 transition-colors duration-200 overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-secondary/30 flex items-center justify-center text-accent mb-5 transition-all duration-300 group-hover:bg-highlight/20 group-hover:text-primary-dark">
-                {service.icon}
+              {/* Top accent line on hover */}
+              <span
+                className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100
+                           transition-transform duration-300 origin-left"
+              />
+
+              {/* Icon */}
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5 shrink-0">
+                <Icon className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-semibold text-primary-dark mb-3">{service.title}</h3>
-              <p className="text-primary-dark/60 leading-relaxed mb-5">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-primary-dark/70">
-                    <CheckCircle className="w-4 h-4 text-highlight" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+
+              {/* Title */}
+              <h3 className="text-base font-semibold text-primary-dark mb-2">
+                {title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm text-primary-dark/60 leading-relaxed mb-5">
+                {description}
+              </p>
+
+              
+
+              {/* CTA — siempre al fondo */}
+              <div className="pt-5 mt-auto">
+                <a
+                  onClick={() =>  {
+                    navigate(link)
+                  }}
+                  className="inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium
+                             bg-accent/10 text-accent rounded-lg px-4 py-2.5
+                             hover:bg-accent/20 transition-colors duration-150"
+                >
+                  <ArrowRight className="w-3.5 h-3.5" />
+                  Saber más
+                </a>
+              </div>
             </div>
           ))}
         </div>

@@ -1,148 +1,280 @@
-import React from 'react';
-import { ArrowRight, Star, Database, Brain, Workflow, Cog, Code2, Shield, Layers } from 'lucide-react';
-
-function CentralNode() {
-  return (
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-      <div className="relative w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-dark to-accent flex items-center justify-center shadow-glow animate-float-complex">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-transparent to-white/10" />
-        <Layers className="w-10 h-10 text-white relative z-10" />
-        <div className="absolute -inset-4 rounded-3xl border border-highlight/20 animate-pulse-soft" />
-      </div>
-    </div>
-  );
-}
-
-function FloatingNode({
-  icon,
-  label,
-  className,
-  delay,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  className: string;
-  delay: string;
-}) {
-  return (
-    <div className={`absolute z-10 ${className}`} style={{ animationDelay: delay }}>
-      <div className="group relative">
-        <div className="w-14 h-14 rounded-xl bg-white shadow-soft border border-gray-100/50 flex items-center justify-center text-accent transition-all duration-300 hover:shadow-premium hover:border-highlight/30 hover:text-primary-dark animate-float">
-          {icon}
-        </div>
-        <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-primary-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {label}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function ConnectionLines() {
-  return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-      <defs>
-        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#B3CFE5" stopOpacity="0.3" />
-          <stop offset="50%" stopColor="#88EDDB" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#B3CFE5" stopOpacity="0.3" />
-        </linearGradient>
-      </defs>
-      <line x1="200" y1="120" x2="200" y2="165" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" />
-      <line x1="280" y1="120" x2="235" y2="165" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" style={{ animationDelay: '0.5s' }} />
-      <line x1="320" y1="270" x2="230" y2="220" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" style={{ animationDelay: '1s' }} />
-      <line x1="200" y1="320" x2="200" y2="235" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" style={{ animationDelay: '1.5s' }} />
-      <line x1="80" y1="270" x2="170" y2="220" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" style={{ animationDelay: '2s' }} />
-      <line x1="120" y1="120" x2="165" y2="165" stroke="url(#lineGradient)" strokeWidth="2" className="animate-pulse-soft" style={{ animationDelay: '2.5s' }} />
-      <circle cx="200" cy="120" r="3" fill="#88EDDB" className="animate-pulse-soft" />
-      <circle cx="320" cy="120" r="3" fill="#88EDDB" className="animate-pulse-soft" style={{ animationDelay: '0.5s' }} />
-      <circle cx="350" cy="270" r="3" fill="#88EDDB" className="animate-pulse-soft" style={{ animationDelay: '1s' }} />
-      <circle cx="200" cy="350" r="3" fill="#88EDDB" className="animate-pulse-soft" style={{ animationDelay: '1.5s' }} />
-      <circle cx="50" cy="270" r="3" fill="#88EDDB" className="animate-pulse-soft" style={{ animationDelay: '2s' }} />
-      <circle cx="80" cy="120" r="3" fill="#88EDDB" className="animate-pulse-soft" style={{ animationDelay: '2.5s' }} />
-    </svg>
-  );
-}
+import React, { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 function HeroVisual() {
+  const [m1, setM1] = useState(0);
+  const [m2, setM2] = useState(0);
+  const [m3, setM3] = useState(0);
+  const [bars, setBars] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [notifs, setNotifs] = useState([false, false, false]);
+  const [pulse, setPulse] = useState(false);
+
+  const barData = [1820, 2100, 1950, 2400, 2800, 1600, 2900];
+  const barMax = 2900;
+  const days = ["L", "M", "X", "J", "V", "S", "D"];
+
+  const animCount = (
+    setter: (v: number) => void,
+    target: number,
+    duration: number
+  ) => {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      setter(Math.round(start));
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  };
+
+  useEffect(() => {
+    const t1 = setTimeout(() => animCount(setM1, 14203, 1200), 300);
+    const t2 = setTimeout(() => animCount(setM2, 2340, 1200), 500);
+    const t3 = setTimeout(() => animCount(setM3, 94, 1200), 700);
+
+    const t4 = setTimeout(() => {
+      barData.forEach((_, i) => {
+        setTimeout(() => {
+          setBars((prev) => {
+            const next = [...prev];
+            next[i] = barData[i];
+            return next;
+          });
+        }, i * 100);
+      });
+    }, 600);
+
+    const t5 = setTimeout(() => setNotifs([true, false, false]), 1500);
+    const t6 = setTimeout(() => setNotifs([true, true, false]), 2400);
+    const t7 = setTimeout(() => setNotifs([true, true, true]), 3300);
+
+    const pulseTimer = setInterval(() => setPulse((p) => !p), 2000);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+      clearTimeout(t5);
+      clearTimeout(t6);
+      clearTimeout(t7);
+      clearInterval(pulseTimer);
+    };
+  }, []);
+
+  const metrics = [
+    { val: m1.toLocaleString(), label: "Tareas auto.", delta: "+847 hoy" },
+    { val: m2 + "h", label: "Horas ahorradas", delta: "+23h semana" },
+    { val: m3 + "%", label: "Eficiencia", delta: "+12% vs mes" },
+  ];
+
+  const notifItems = [
+    { text: "Lead cerrado", sub: "Juan Méndez — Acme S.A." },
+    { text: "Mensajes respondidos", sub: "340 · 09:14 AM" },
+    { text: "Reporte generado", sub: "Enviado automáticamente" },
+  ];
+
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-gradient-to-br from-secondary/20 via-transparent to-highlight/10 blur-3xl" />
-      <div className="relative w-full max-w-lg aspect-square">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-36 h-36 rounded-2xl bg-primary-dark/5 animate-pulse-soft" />
+    <div
+      className="w-full h-full flex items-center justify-center"
+      style={{ fontFamily: "'Inter', sans-serif" }}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border border-gray-100 bg-white overflow-hidden"
+        style={{ boxShadow: "0 4px 40px rgba(0,0,0,0.08)" }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <div>
+            <p className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+              Panel de control
+            </p>
+            <p
+              className="text-sm font-semibold text-primary-dark mt-0.5"
+              style={{ fontFamily: "'Inter Tight', sans-serif" }}
+            >
+              Advantech AI
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-medium text-emerald-600">
+            <span
+              className="w-2 h-2 rounded-full bg-emerald-500"
+              style={{
+                opacity: pulse ? 1 : 0.3,
+                transition: "opacity 0.6s ease",
+              }}
+            />
+            En vivo
+          </div>
         </div>
-        <CentralNode />
-        <FloatingNode icon={<Database className="w-5 h-5" />} label="Base de Datos" className="top-0 left-1/2 -translate-x-1/2 -translate-y-4" delay="0s" />
-        <FloatingNode icon={<Brain className="w-5 h-5" />} label="IA" className="top-1/4 right-0 translate-x-4" delay="0.5s" />
-        <FloatingNode icon={<Workflow className="w-5 h-5" />} label="Workflows" className="bottom-1/4 right-0 translate-x-4" delay="1s" />
-        <FloatingNode icon={<Cog className="w-5 h-5" />} label="Automatización" className="bottom-0 left-1/2 -translate-x-1/2 translate-y-4" delay="1.5s" />
-        <FloatingNode icon={<Code2 className="w-5 h-5" />} label="APIs" className="bottom-1/4 left-0 -translate-x-4" delay="2s" />
-        <FloatingNode icon={<Shield className="w-5 h-5" />} label="Seguridad" className="top-1/4 left-0 -translate-x-4" delay="2.5s" />
-        <ConnectionLines />
+
+        {/* Métricas */}
+        <div className="grid grid-cols-3 divide-x divide-gray-100 border-b border-gray-100">
+          {metrics.map((m, i) => (
+            <div key={i} className="px-4 py-4 text-center">
+              <p
+                className="text-xl font-bold text-primary-dark tabular-nums"
+                style={{ fontFamily: "'Inter Tight', sans-serif" }}
+              >
+                {m.val}
+              </p>
+              <p className="text-xs text-gray-400 mt-0.5">{m.label}</p>
+              <p className="text-xs font-medium text-emerald-600 mt-1">
+                {"\u2191"} {m.delta}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Barras */}
+        <div className="px-5 py-4 border-b border-gray-100">
+          <p className="text-xs text-gray-400 mb-3">
+            Tareas procesadas — últimos 7 días
+          </p>
+          <div className="flex items-end gap-1.5" style={{ height: "64px" }}>
+            {bars.map((val, i) => (
+              <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                <div className="w-full relative" style={{ height: "48px" }}>
+                  <div
+                    className="absolute bottom-0 w-full rounded-t-sm"
+                    style={{
+                      height: Math.round((val / barMax) * 48) + "px",
+                      background:
+                        i === 6 ? "#1D9E75" : "rgba(29,158,117,0.25)",
+                      transition:
+                        "height 0.6s cubic-bezier(.34,1.56,.64,1)",
+                      transitionDelay: i * 80 + "ms",
+                    }}
+                  />
+                </div>
+                <span
+                  className="text-gray-300"
+                  style={{ fontSize: "10px" }}
+                >
+                  {days[i]}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Notificaciones */}
+        <div className="px-5 py-4 space-y-3">
+          {notifItems.map((n, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3"
+              style={{
+                opacity: notifs[i] ? 1 : 0,
+                transform: notifs[i]
+                  ? "translateY(0)"
+                  : "translateY(6px)",
+                transition: "opacity 0.4s ease, transform 0.4s ease",
+              }}
+            >
+              <div
+                className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 text-emerald-700 font-bold"
+                style={{ background: "#E1F5EE", fontSize: "11px" }}
+              >
+                {"\u2713"}
+              </div>
+              <div>
+                <p className="text-xs font-medium text-primary-dark leading-tight">
+                  {n.text}
+                </p>
+                <p
+                  className="text-gray-400 leading-tight"
+                  style={{ fontSize: "11px" }}
+                >
+                  {n.sub}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-export default function HeroSection({ heroRef }: { heroRef: React.RefObject<HTMLDivElement> }) {
+const UnderlineSvg = () => (
+  <svg
+    className="absolute -bottom-2 left-0 w-full h-3 text-highlight/30"
+    viewBox="0 0 200 12"
+    preserveAspectRatio="none"
+  >
+    <path
+      d="M0,8 Q50,0 100,8 T200,8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export default function HeroSection({
+  heroRef,
+}: {
+  heroRef: React.RefObject<HTMLDivElement>;
+}) {
   return (
-    <section ref={heroRef as React.RefObject<HTMLElement>} className="relative min-h-screen pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden">
+    <section
+      ref={heroRef as React.RefObject<HTMLElement>}
+      className="relative min-h-screen pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden"
+    >
       <div className="absolute inset-0 gradient-mesh" />
       <div className="absolute inset-0 grid-pattern opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="text-center lg:text-left space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 border border-secondary/30 text-sm font-medium text-accent animate-fade-in">
-              <span className="w-2 h-2 rounded-full bg-highlight animate-pulse" />
-              Inteligencia Artificial Empresarial
-            </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight text-balance animate-slide-up">
-              Transformamos procesos complejos en{' '}
-              <span className="relative">
-                <span className="relative z-10 text-accent">sistemas inteligentes</span>
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-highlight/30" viewBox="0 0 200 12" preserveAspectRatio="none">
-                  <path d="M0,8 Q50,0 100,8 T200,8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                </svg>
+          <div
+            className="text-center lg:text-left space-y-8"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            <h1
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-balance animate-slide-up"
+              style={{ fontFamily: "'Inter Tight', sans-serif" }}
+            >
+              Ten presencia {" "}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-accent">
+                  digital
+                </span>
+              </span>
+              {" "}y sistemas que{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-accent">
+                  automatizan tu negocio.
+                </span>
+                <UnderlineSvg />
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-primary-dark/60 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-slide-up stagger-1">
-              Desarrollamos software, automatizaciones e inteligencia artificial que ayudan a las empresas a crecer más rápido, operar con mayor eficiencia y escalar sin límites.
+              Transformamos tu negocio con tecnología, automatización y
+              presencia digital para que ganes más, gastes menos y operes
+              mejor con soluciones eficientes, flexibles y personalizadas.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-up stagger-2">
-              <a href="#contacto" className="btn-primary text-lg px-8 py-4 w-full sm:w-auto">
-                Agenda una Consulta
+              <a
+                href="#contacto"
+                className="btn-primary text-lg px-8 py-4 w-full sm:w-auto"
+              >
+                Agenda una reunión
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
-              <a href="#soluciones" className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto">
-                Ver Soluciones
+              <a
+                href="#soluciones"
+                className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto"
+              >
+                Ver soluciones
               </a>
-            </div>
-
-            <div className="flex items-center justify-center lg:justify-start gap-8 pt-4 animate-fade-in stagger-3">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-xs font-semibold text-white ring-2 ring-white">
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-left">
-                <div className="flex items-center gap-1 text-highlight">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm text-primary-dark/60 mt-1">+50 empresas confían en nosotros</p>
-              </div>
             </div>
           </div>
 
-          <div className="relative lg:h-[600px] animate-scale-in stagger-2">
+          <div className="relative lg:h-[600px] flex items-center animate-scale-in stagger-2">
             <HeroVisual />
           </div>
         </div>
