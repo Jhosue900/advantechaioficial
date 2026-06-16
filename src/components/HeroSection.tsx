@@ -87,7 +87,7 @@ function HeroVisual() {
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <div>
             <p className="text-xs font-medium text-gray-400 uppercase tracking-widest">
-              Panel de control
+              DASHBOARD
             </p>
             <p
               className="text-sm font-semibold text-primary-dark mt-0.5"
@@ -95,16 +95,6 @@ function HeroVisual() {
             >
               Advantech AI
             </p>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-medium text-emerald-600">
-            <span
-              className="w-2 h-2 rounded-full bg-emerald-500"
-              style={{
-                opacity: pulse ? 1 : 0.3,
-                transition: "opacity 0.6s ease",
-              }}
-            />
-            En vivo
           </div>
         </div>
 
