@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect, useRef } from 'react';
 
 import Navbar from '../components/Navbar';
@@ -43,6 +44,16 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
+
+      <Helmet>
+        <title>Advantech AI | Automatización con n8n y Desarrollo Full-Stack Premium</title>
+        <meta name="description" content="Agencia internacional de ingeniería de software. Maximizamos la eficiencia empresarial mediante integraciones con n8n, agentes de IA, chatbots avanzados y plataformas web a medida." />
+        <link rel="canonical" href="https://www.advantechai.org/" />
+        <meta property="og:title" content="Advantech AI | Automatización n8n e Ingeniería Web Premium" />
+        <meta property="og:description" content="Maximizamos la eficiencia de tu negocio con agentes de IA y desarrollo full-stack escalable." />
+        <meta property="og:url" content="https://www.advantechai.org/" />
+      </Helmet>
+
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
       <HeroSection heroRef={heroRef} />
       <ServicesSection />

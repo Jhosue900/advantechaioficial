@@ -36,15 +36,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/60">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:contacto@advantech.ai" className="hover:text-white transition-colors">contacto@advantech.ai</a>
+                <a href="mailto:advantechai.2025@gmail.com" className="hover:text-white transition-colors">advantechai.2025@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 text-white/60">
                 <Phone className="w-4 h-4" />
-                <span>+52 (55) 1234-5678</span>
+                <span>+57 317 0852895</span>
               </li>
               <li className="flex items-center gap-3 text-white/60">
                 <MapPin className="w-4 h-4" />
-                <span>Ciudad de México, MX</span>
+                <span>Colombia</span>
               </li>
             </ul>
           </div>
