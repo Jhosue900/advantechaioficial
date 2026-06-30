@@ -92,5 +92,118 @@
   <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <style>
+        /* ============================================
+           ESTILOS PERSONALIZADOS PARA EL CHAT DE N8N
+           Basados en la paleta de Advantech AI
+           ============================================ */
+        
+        /* Aplica la fuente moderna de la agencia */
+        :root {
+            --chat--font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+      
+        /* Personalización de colores y estilos principales */
+        #n8n-chat {
+            --chat--color--primary: #2D4A53;        /* Color principal (acento) */
+            --chat--color--primary-shade-50: #1F3640; /* Una tonalidad más oscura */
+            --chat--color--primary--shade-100: #16262E; /* La más oscura */
+        
+            --chat--color--secondary: #88EDDB;      /* Color secundario (highlight) */
+            --chat--color-secondary-shade-50: #5CE0C8; /* Tonalidad más oscura */
+        
+            --chat--color-dark: #0A1931;            /* Fondo del header */
+            --chat--color-light: #F8FAFC;           /* Fondo del cuerpo del chat */
+        
+            --chat--color-white: #FFFFFF;            /* Blanco puro */
+            --chat--color-light-shade-50: #E2E8F0;  /* Gris claro para bordes */
+            --chat--color-medium: #CBD5E1;          /* Gris para elementos secundarios */
+        
+            /* Estilo del header */
+            --chat--header--background: #0A1931;     /* Fondo del header (primary-dark) */
+            --chat--header--color: #FFFFFF;          /* Texto del header (blanco) */
+            --chat--heading--font-size: 1.25rem;     /* Tamaño del título */
+            --chat--subtitle--font-size: 0.85rem;    /* Tamaño del subtítulo */
+            --chat--subtitle--line-height: 1.5;
+        
+            /* Estilo de los mensajes */
+            --chat--message--bot--background: #F1F5F9; /* Fondo del mensaje del bot (gris muy suave) */
+            --chat--message--bot--color: #0A1931;      /* Texto del mensaje del bot (primary-dark) */
+            --chat--message--user--background: #2D4A53; /* Fondo del mensaje del usuario (acento) */
+            --chat--message--user--color: #FFFFFF;      /* Texto del mensaje del usuario (blanco) */
+        
+            /* Estilo del área de entrada */
+            --chat--input--background: #FFFFFF;      /* Fondo del input (blanco) */
+            --chat--input--border: 1px solid #E2E8F0; /* Borde sutil */
+            --chat--input--border-radius: 8px;       /* Bordes redondeados */
+            --chat--input--padding: 0.8rem 1rem;
+        
+            /* Estilo del botón de enviar */
+            --chat--input--send--button--background: #2D4A53; /* Fondo del botón (acento) */
+            --chat--input--send--button--color: #FFFFFF;      /* Color del ícono (blanco) */
+            --chat--input--send--button--background-hover: #1F3640; /* Fondo al pasar el mouse */
+            --chat--input--send--button--color-hover: #FFFFFF;    /* Color del ícono al pasar el mouse */
+        
+            /* Estilo del botón flotante (toggle) */
+            --chat--toggle--background: #2D4A53;      /* Fondo del botón (acento) */
+            --chat--toggle--hover--background: #1F3640; /* Fondo al pasar el mouse */
+            --chat--toggle--color: #FFFFFF;           /* Color del ícono (blanco) */
+            --chat--toggle--size: 60px;               /* Tamaño del botón */
+        
+            /* Bordes y sombras */
+            --chat--border-radius: 12px;              /* Bordes redondeados generales */
+            --chat--window--border: 1px solid #E2E8F0;
+            --chat--window--border-radius: 16px;
+            --chat--window--box-shadow: 0 20px 60px -12px rgba(10, 25, 49, 0.25);
+        
+            /* Dimensiones de la ventana */
+            --chat--window--width: 380px;
+            --chat--window--height: 600px;
+        }
+      
+        /* Mejoras adicionales para el scroll y la experiencia */
+        #n8n-chat .chat--messages-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        #n8n-chat .chat--messages-list::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        #n8n-chat .chat--messages-list::-webkit-scrollbar-thumb {
+            background: #B3CFE5;
+            border-radius: 4px;
+        }
+        #n8n-chat .chat--messages-list::-webkit-scrollbar-thumb:hover {
+            background: #2D4A53;
+        }
+    </style>
+
+
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+        
+        createChat({
+            webhookUrl: 'https://n8n.advantechai.org/webhook/7a897103-07bc-48fc-9da0-7ee6e57dc949/chat',
+            mode: 'window',
+            showWelcomeScreen: true, // Muestra la pantalla de bienvenida
+            initialMessages: [
+                '👋 ¡Hola! Soy el asistente virtual de Advantech AI.',
+                '¿Cómo puedo ayudarte a impulsar tu negocio con automatización e inteligencia artificial?'
+            ],
+            i18n: {
+                en: {
+                    title: '🤖 Asistente Advantech AI',
+                    subtitle: 'Estamos aquí para ayudarte a automatizar y escalar.',
+                    getStarted: 'Iniciar conversación',
+                    inputPlaceholder: 'Escribe tu mensaje...',
+                },
+            },
+            // enableStreaming: true, // Descomenta si tu workflow soporta streaming
+        });
+    </script>
+
   </body>
 </html>
