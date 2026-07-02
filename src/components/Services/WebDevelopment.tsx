@@ -5,138 +5,253 @@ import Navbar from '../Navbar';
 import Footer from '../Footer';
 import { Helmet } from 'react-helmet-async';
 import {
-  ArrowRight, Code2, Globe, Layout, Database, Shield, Clock, CheckCircle2,
-  ChevronDown, Settings, Zap, Users, AlertCircle, LightbulbIcon,
-  X, Check, HeartHandshake, TrendingUp, Rocket,
+  ArrowRight, Code2, Globe, Layout, Shield, Clock, CheckCircle2,
+  ChevronDown, Settings, Zap, Users, AlertCircle, TrendingDown,
+  Check, HeartHandshake, TrendingUp, Rocket, DollarSign,
+  Flame, Megaphone, ShoppingCart, FileText, Palette, BarChart2,
+  Eye, PenTool, Monitor, Search, Smartphone, Star,
 } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 /* ─── Datos ─── */
 
 const stats = [
-  { value: '50%', label: 'más rápido que el promedio' },
-  { value: '99.9%', label: 'disponibilidad garantizada' },
-  { value: '100%', label: 'responsivo y adaptativo' },
+  { value: '94%', label: 'de las primeras impresiones están relacionadas con el diseño' },
+  { value: '3 seg', label: 'tiene un visitante para decidir si confía en tu sitio' },
+  { value: '60+',  label: 'sitios web profesionales entregados' },
 ];
 
-const whatIsPoints = [
-  'Creamos sitios web y plataformas full-stack con tecnologías modernas (React, Node.js, TypeScript, etc.).',
-  'No son plantillas prefabricadas; son soluciones hechas a la medida de tu marca y tus objetivos.',
-  'Optimizamos para SEO, velocidad y experiencia de usuario desde el diseño.',
-  'Incluimos integraciones, paneles de administración y funcionalidades avanzadas.',
+// Problemas reales que enfrentan los negocios con su sitio web
+const painPoints = [
+  {
+    Icon: TrendingDown,
+    title: 'Un sitio que no refleja el nivel real de tu empresa',
+    description: 'Cuando un posible cliente llega a tu web y encuentra algo genérico, desactualizado o lento, la percepción que se lleva no corresponde a la calidad de lo que ofreces. Y esa percepción es difícil de revertir.',
+  },
+  {
+    Icon: Flame,
+    title: 'Información difícil de encontrar, visitantes que se van',
+    description: 'Si un visitante no encuentra rápidamente lo que busca —ya sea un servicio, un contacto o información clave— abandona el sitio. No por falta de interés, sino por una navegación que debería ser más clara.',
+  },
+  {
+    Icon: DollarSign,
+    title: 'Actualizar el contenido es más complicado de lo que debería',
+    description: 'Muchas empresas dependen de terceros para cada cambio mínimo en su web: agregar un servicio, actualizar un precio o publicar una nota. Esto ralentiza la comunicación y genera costos innecesarios.',
+  },
 ];
 
+// Qué cambia con un sitio web profesional
+const transformation = [
+  {
+    num: '01',
+    section: 'Tu marca se comunica con claridad desde el primer vistazo',
+    what: 'Credibilidad visible',
+    why: 'El diseño, la estructura y el contenido trabajan juntos para que el visitante entienda rápidamente quién eres, qué ofreces y por qué debería considerar tu empresa.',
+  },
+  {
+    num: '02',
+    section: 'Una experiencia de navegación sin fricciones',
+    what: 'Recorrido fluido',
+    why: 'Una navegación clara y una jerarquía de información bien pensada reducen los puntos donde el visitante se pierde o abandona antes de encontrar lo que busca.',
+  },
+  {
+    num: '03',
+    section: 'Diseño que se adapta a cualquier dispositivo',
+    what: 'Experiencia consistente',
+    why: 'Tu sitio se ve y funciona igual de bien en un teléfono, una tablet o un escritorio. La experiencia del visitante es siempre la misma, sin importar cómo acceda.',
+  },
+  {
+    num: '04',
+    section: 'Una base técnica sólida para tu estrategia digital',
+    what: 'Preparado para posicionar',
+    why: 'Estructura semántica, velocidad de carga, URLs limpias y compatibilidad móvil son la base que cualquier estrategia de posicionamiento orgánico necesita para funcionar.',
+  },
+];
+
+// Casos de uso — sitios web profesionales
 const useCases = [
   {
     Icon: Globe,
-    title: 'Sitios web corporativos',
-    description: 'Páginas institucionales que transmiten la identidad de tu marca y generan confianza en tus clientes.',
-    example: 'Consultoría → sitio web con propuesta de valor, servicios y blog.',
+    title: 'Sitio corporativo o institucional',
+    description: 'Un sitio que comunica con claridad quién es tu empresa, qué ofrece y por qué debería importarle al visitante. Diseñado para que el proceso de decisión del cliente sea más fácil.',
+    example: 'Consultora → sitio con propuesta de valor clara, servicios y punto de contacto directo.',
   },
   {
-    Icon: Layout,
-    title: 'Plataformas de contenido',
-    description: 'Sitios con gestión de contenido (CMS) para publicar artículos, productos o recursos multimedia.',
-    example: 'Medio digital → plataforma de noticias con suscripciones.',
+    Icon: ShoppingCart,
+    title: 'Catálogo de productos',
+    description: 'Presenta tus productos de forma organizada para que tus clientes puedan conocer tu oferta y solicitar información con facilidad.',
+    example: 'Empresa industrial → catálogo digital con fichas técnicas y formulario de cotización.',
+  },
+  {
+    Icon: Rocket,
+    title: 'Sitio de lanzamiento o producto',
+    description: 'Una página diseñada para presentar un nuevo servicio, producto o iniciativa. Comunicación clara, llamado a la acción visible y sin distracciones.',
+    example: 'Nuevo servicio → sitio con propuesta, beneficios y formulario de contacto.',
+  },
+  {
+    Icon: Megaphone,
+    title: 'Portafolio profesional',
+    description: 'Una presencia digital que representa el nivel real de tu trabajo. Coherente, profesional y fácil de actualizar cuando tu oferta o tu equipo cambia.',
+    example: 'Estudio de arquitectura → portafolio con proyectos, descripciones y ficha de contacto.',
+  },
+  {
+    Icon: FileText,
+    title: 'Blog y contenido',
+    description: 'Un sitio pensado para publicar contenido relevante para tu audiencia. Diseño limpio que pone el foco en la lectura y facilita el descubrimiento de artículos.',
+    example: 'Consultora de contenido → blog con artículos, categorías y suscripción por correo.',
+  },
+  {
+    Icon: Palette,
+    title: 'Landing page de marca',
+    description: 'Una página simple pero impactante, diseñada para presentar tu empresa o servicio con un mensaje claro y un único objetivo: que el visitante sepa quién eres y cómo contactarte.',
+    example: 'Empresa de servicios → landing page con mensaje central, beneficios y contacto.',
+  },
+];
+
+// Qué incluye el servicio
+const included = [
+  {
+    Icon: PenTool,
+    title: 'Estrategia y planificación',
+    items: [
+      'Entendemos tu negocio, tu competencia y tus objetivos',
+      'Definimos qué debe lograr cada página y cada sección',
+      'Estructura de navegación pensada para el visitante',
+    ],
+  },
+  {
+    Icon: Palette,
+    title: 'Diseño visual y de marca',
+    items: [
+      'Diseño adaptado a tu identidad de marca',
+      'Funciona en móvil, tablet y desktop',
+      'Interfaz clara, rápida y fácil de navegar',
+    ],
+  },
+  {
+    Icon: FileText,
+    title: 'Contenido y mensajes',
+    items: [
+      'Textos orientados a lo que tu cliente necesita saber',
+      'Jerarquía de información clara y sin ruido',
+      'Llamadas a la acción bien posicionadas y fáciles de encontrar',
+    ],
   },
   {
     Icon: Code2,
-    title: 'Desarrollo full-stack a medida',
-    description: 'Construimos tanto el frontend como el backend, con autenticación, bases de datos y APIs.',
-    example: 'Marketplace → plataforma de compraventa con pasarela de pago.',
+    title: 'Construcción técnica',
+    items: [
+      'Código limpio, rápido y estable',
+      'Formularios de contacto conectados a tu correo',
+      'Carga rápida y estructura lista para buscadores',
+    ],
   },
   {
-    Icon: Shield,
-    title: 'Seguridad y rendimiento',
-    description: 'Implementamos HTTPS, protección contra ataques, optimización de imágenes y carga rápida.',
-    example: 'E-commerce → tienda online segura y rápida.',
+    Icon: BarChart2,
+    title: 'Medición desde el día 1',
+    items: [
+      'Analítica instalada antes de salir al aire',
+      'Seguimiento de visitas, fuentes y acciones clave',
+      'Sabes qué está funcionando y qué no',
+    ],
+  },
+  {
+    Icon: Rocket,
+    title: 'Lanzamiento y entrega',
+    items: [
+      'Publicación en tu dominio con todo configurado',
+      'Probado en múltiples navegadores y dispositivos',
+      'Capacitación básica para que puedas actualizar tu contenido sin dificultades',
+    ],
   },
 ];
 
+// Proceso sin jerga técnica
 const process = [
   {
     step: '01',
-    title: 'Definición de objetivos',
+    title: 'Entendemos tu negocio',
     time: '2–3 días',
-    description: 'Entendemos tu negocio, tu audiencia y lo que quieres lograr con tu presencia digital.',
-    deliverable: 'Brief estratégico y alcance',
+    description: 'Antes de diseñar o escribir una línea de código, entendemos a quién le habla tu empresa, qué quieres lograr y qué necesita ver un visitante para contactarte o confiar en ti.',
+    deliverable: 'Mapa de objetivos y estructura del sitio',
   },
   {
     step: '02',
-    title: 'Diseño UI/UX',
+    title: 'Diseñamos cómo se verá',
     time: '5–7 días',
-    description: 'Diseñamos la interfaz centrada en el usuario, con prototipos interactivos y feedback.',
-    deliverable: 'Prototipo en Figma y guía de estilos',
+    description: 'Construimos el diseño visual completo de cada página. Revisas cómo va a quedar antes de que se escriba código — lo apruebas tú antes de continuar.',
+    deliverable: 'Diseño completo aprobado por ti',
   },
   {
     step: '03',
-    title: 'Desarrollo full-stack',
+    title: 'Construimos el sitio',
     time: '15–25 días',
-    description: 'Construimos la plataforma con las mejores prácticas de desarrollo, pruebas y documentación.',
-    deliverable: 'Sitio web funcional en entorno de pruebas',
+    description: 'Desarrollamos el sitio completo: páginas, secciones y formularios. Cada decisión técnica está alineada con los objetivos definidos en la primera etapa.',
+    deliverable: 'Sitio funcionando en entorno de pruebas',
   },
   {
     step: '04',
-    title: 'Optimización y pruebas',
+    title: 'Revisamos y ajustamos contigo',
     time: '3–5 días',
-    description: 'Realizamos pruebas de rendimiento, SEO, accesibilidad y seguridad.',
-    deliverable: 'Informe de optimización y correcciones',
+    description: 'Revisamos juntos cada sección y aplicamos los ajustes que necesites. Nada sale al aire sin tu visto bueno.',
+    deliverable: 'Sitio ajustado y aprobado',
   },
   {
     step: '05',
-    title: 'Lanzamiento y capacitación',
+    title: 'Sale al aire',
     time: '2–3 días',
-    description: 'Publicamos el sitio, configuramos el hosting y capacitamos a tu equipo en la administración.',
-    deliverable: 'Sitio web en producción + manual de administración',
+    description: 'Publicamos en tu dominio, configuramos todo el entorno y verificamos que funcione perfecto en cada dispositivo. Te dejamos con el sitio activo y listo para recibir visitas.',
+    deliverable: 'Sitio publicado y listo para recibir visitas',
   },
 ];
 
-const plans = [
+// Factores que determinan la cotización
+const quoteFactors = [
   {
-    name: 'Startup',
-    price: 'Desde $1,500 USD',
-    description: 'Ideal para sitios web corporativos o landing pages avanzadas.',
-    features: ['Hasta 5 páginas', 'Diseño responsivo', 'CMS básico', 'SEO on-page', '3 meses de soporte'],
-    notIncluded: ['Funcionalidades avanzadas', 'Integraciones complejas'],
-    cta: 'Solicitar cotización',
-    highlighted: false,
+    Icon: Layout,
+    title: 'El tamaño y la complejidad del sitio',
+    description: 'No es lo mismo un sitio de 5 páginas que uno con 20 secciones, catálogo de servicios y múltiples formularios.',
   },
   {
-    name: 'Business',
-    price: 'Desde $3,500 USD',
-    description: 'El plan más popular para sitios web con funcionalidades y escalabilidad.',
-    features: ['Páginas ilimitadas', 'Diseño personalizado', 'CMS avanzado', 'Panel de administración', 'Optimización SEO completa', 'Integración con herramientas externas', '6 meses de soporte'],
-    notIncluded: [],
-    cta: 'Solicitar cotización',
-    highlighted: true,
+    Icon: Settings,
+    title: 'Las funcionalidades que necesitas',
+    description: 'Formularios de contacto, tienda online, blog, catálogo de servicios — cada funcionalidad define el alcance real del proyecto.',
   },
   {
-    name: 'Enterprise',
-    price: 'Desde $7,000 USD',
-    description: 'Para grandes corporativos y plataformas con alta demanda.',
-    features: ['Arquitectura escalable', 'Alta disponibilidad', 'Integración con ERP/CRM', 'Funcionalidades a medida', 'Capacitación avanzada', 'Soporte 24/7'],
-    notIncluded: [],
-    cta: 'Solicitar cotización',
-    highlighted: false,
+    Icon: ShoppingCart,
+    title: 'Comercio electrónico',
+    description: 'Si necesitas una tienda online, el catálogo de productos y la pasarela de pago añaden complejidad al desarrollo.',
   },
 ];
 
 const faqs = [
   {
-    q: '¿Qué diferencia un sitio web desarrollado a medida de uno con plantillas?',
-    a: 'Un sitio a medida está diseñado específicamente para tu marca, con funcionalidades únicas, mejor rendimiento y total flexibilidad para futuras modificaciones. Las plantillas son genéricas y limitan la personalización.',
+    q: '¿Cuánto cuesta un sitio web profesional?',
+    a: 'Depende del tamaño, las funcionalidades y el nivel de personalización que necesites. No manejamos tarifas fijas porque cada proyecto es distinto. Cuéntanos qué necesitas y en menos de 24 horas te respondemos con una propuesta clara.',
   },
   {
-    q: '¿Incluye el dominio y hosting?',
-    a: 'Podemos ayudarte a adquirir el dominio y el hosting, o podemos trabajar con los que ya tengas. Te asesoramos en la mejor opción para tu proyecto.',
+    q: '¿Por qué necesito un sitio nuevo si ya tengo uno?',
+    a: 'Si tu presencia digital no refleja el nivel actual de tu empresa, es difícil de actualizar o no ofrece una experiencia clara al visitante, hay margen real de mejora. Un sitio bien construido facilita que los visitantes encuentren lo que buscan y confíen en tu empresa desde el primer momento.',
   },
   {
-    q: '¿El sitio será optimizado para SEO?',
-    a: 'Sí, desde el desarrollo aplicamos las mejores prácticas de SEO: estructura de URLs, metaetiquetas, velocidad de carga, contenido semántico y compatibilidad con móviles.',
+    q: '¿Cuánto tiempo tarda tener mi sitio listo?',
+    a: 'Entre 4 y 8 semanas según el alcance. Lo que más afecta el tiempo es la agilidad con que revisas y apruebas cada etapa. Ofrecemos entregas express bajo consulta para proyectos urgentes.',
   },
   {
-    q: '¿Puedo actualizar el contenido yo mismo?',
-    a: 'Sí, si incluye un CMS. Te capacitamos para que puedas agregar, editar y eliminar contenido sin necesidad de conocimientos técnicos.',
+    q: '¿Incluye dominio y hosting?',
+    a: 'No están incluidos en el precio base, pero te asesoramos en la mejor opción para tu proyecto y lo configuramos todo. Si ya tienes hosting, trabajamos con él.',
+  },
+  {
+    q: '¿Mi sitio va a aparecer en Google?',
+    a: 'Construimos con las prácticas técnicas que cualquier estrategia de posicionamiento orgánico necesita: estructura semántica, velocidad de carga, URLs limpias y compatibilidad móvil. El posicionamiento en Google depende de muchos factores, pero una base técnica sólida es el punto de partida.',
+  },
+  {
+    q: '¿Puedo ver cómo va quedando antes de publicar?',
+    a: 'Siempre. Primero apruebas el diseño visual completo, y luego el sitio desarrollado lo revisas en un entorno de pruebas antes de publicarlo. No sale nada sin tu aprobación.',
+  },
+  {
+    q: '¿Qué pasa si necesito cambios después del lanzamiento?',
+    a: 'Cada proyecto incluye un período de ajustes post-lanzamiento. Después, los cambios tienen un costo según la complejidad, y ofrecemos un servicio de mantenimiento mensual para quienes necesitan actualizaciones frecuentes.',
   },
 ];
 
@@ -157,48 +272,74 @@ function HeroVisual() {
         className="rounded-2xl border border-border/40 bg-background overflow-hidden"
         style={{ boxShadow: '0 4px 40px rgba(0,0,0,0.07)' }}
       >
-        <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border/40 bg-background/80">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
-          <span className="flex-1 mx-3 h-5 rounded-md bg-border/30 text-[10px] text-primary-dark/30 flex items-center px-2 truncate">
-            advantech.ai
+        <div className="flex items-center gap-1.5 px-3 sm:px-4 py-2.5 sm:py-3 border-b border-border/40 bg-background/80">
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-400/60 shrink-0" />
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-400/60 shrink-0" />
+          <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-400/60 shrink-0" />
+          <span className="flex-1 mx-2 sm:mx-3 h-5 rounded-md bg-border/30 text-[10px] text-primary-dark/30 flex items-center px-2 truncate">
+            tuempresa.com
           </span>
         </div>
-        <div className="p-4 space-y-3">
+        <div className="p-3 sm:p-4 space-y-3">
           <div className="flex items-center gap-2">
-            <Globe className="w-5 h-5 text-accent" />
+            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
             <span className="text-xs font-medium text-primary-dark">Sitio en vivo</span>
           </div>
           <div className="space-y-1.5">
             <div className="h-3 w-4/5 rounded bg-primary-dark/10" />
             <div className="h-3 w-3/5 rounded bg-primary-dark/10" />
           </div>
-          <div className="flex gap-1.5 flex-wrap">
-            {['🚀 Carga rápida', '📱 Responsive', '🔒 HTTPS'].map((badge) => (
-              <span key={badge} className="text-[9px] px-2 py-0.5 rounded-md bg-accent/8 text-accent font-medium border border-accent/20">
+          <div className="h-7 sm:h-8 w-36 sm:w-40 rounded-lg bg-accent/90 flex items-center justify-center">
+            <span className="text-[9px] sm:text-[10px] font-semibold text-white tracking-wide whitespace-nowrap">
+              Solicitar información →
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {['✓ Confiable', '📱 Adaptable', '⚡ Rápida'].map((badge) => (
+              <span key={badge} className="text-[9px] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md bg-accent/8 text-accent font-medium border border-accent/20 whitespace-nowrap">
                 {badge}
               </span>
             ))}
           </div>
         </div>
         <div className="grid grid-cols-3 divide-x divide-border/30 border-t border-border/40">
-          <div className="py-2.5 text-center">
-            <p className="text-xs font-bold text-primary-dark">99.9%</p>
-            <p className="text-[9px] text-primary-dark/40">Disponibilidad</p>
-          </div>
-          <div className="py-2.5 text-center">
-            <p className="text-xs font-bold text-primary-dark">1.2s</p>
-            <p className="text-[9px] text-primary-dark/40">Carga promedio</p>
-          </div>
-          <div className="py-2.5 text-center">
-            <p className="text-xs font-bold text-primary-dark">96</p>
-            <p className="text-[9px] text-primary-dark/40">PageSpeed</p>
-          </div>
+          {[
+            { v: '<2s',   l: 'tiempo de carga' },
+            { v: '99.9%', l: 'disponible' },
+            { v: '96',    l: 'PageSpeed' },
+          ].map(({ v, l }) => (
+            <div key={l} className="py-2.5 sm:py-3 text-center">
+              <p className="text-xs sm:text-sm font-bold text-primary-dark">{v}</p>
+              <p className="text-[9px] sm:text-[10px] text-primary-dark/40 mt-0.5">{l}</p>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="absolute -top-3 -right-3 bg-accent text-white rounded-xl px-3 py-1.5 text-[11px] font-semibold shadow-lg">
-        Full-Stack
+
+      {/* Floating badge */}
+      <div
+        className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-accent text-white rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold whitespace-nowrap"
+        style={{ boxShadow: '0 4px 16px rgba(29,158,117,0.35)' }}
+      >
+        Nuevo proyecto
+      </div>
+
+      {/* Floating card */}
+      <div
+        className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 bg-background border border-border/40 rounded-xl px-2.5 sm:px-3 py-2 sm:py-2.5 flex items-center gap-1.5 sm:gap-2"
+        style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}
+      >
+        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-accent/15 flex items-center justify-center text-accent text-xs font-bold shrink-0">
+          ✓
+        </div>
+        <div>
+          <p className="text-[11px] sm:text-xs font-semibold text-primary-dark leading-tight whitespace-nowrap">
+            Consulta recibida
+          </p>
+          <p className="text-[9px] sm:text-[10px] text-primary-dark/40 whitespace-nowrap">
+            hace 4 minutos
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -223,408 +364,539 @@ export default function WebDevelopment() {
   const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    useEffect(() => {
-      const handleScroll = () => {
-        setScrolled(window.scrollY > 20);
-      };
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
+      <Helmet>
+        <title>Sitios Web Profesionales para Empresas | Advantech AI</title>
+        <meta name="description" content="Desarrollamos sitios web corporativos, institucionales y de comercio electrónico con foco en diseño, claridad y experiencia de usuario. Presencia digital profesional para empresas que toman en serio su imagen." />
+        <link rel="canonical" href="https://www.advantechai.org/DesarrolloWeb" />
+        <meta property="og:title" content="Sitios Web Profesionales para Empresas | Advantech AI" />
+        <meta property="og:description" content="Sitios web corporativos, institucionales y de comercio electrónico con diseño profesional y experiencia de usuario cuidada." />
+        <meta property="og:url" content="https://www.advantechai.org/DesarrolloWeb" />
+      </Helmet>
 
-        <Helmet>
-            <title>Desarrollo Web Full-Stack Avanzado y Moderno | Advantech AI</title>
-            <meta name="description" content="Creamos plataformas de software estables, rápidas y ultra adaptables utilizando las últimas tecnologías web (React, Node.js, TypeScript). Sitios corporativos, comercio electrónico y más." />
-            <link rel="canonical" href="https://www.advantechai.org/DesarrolloWeb" />
-            <meta property="og:title" content="Desarrollo Web Full-Stack Avanzado y Moderno | Advantech AI" />
-            <meta property="og:description" content="Desarrollamos sitios web y aplicaciones full-stack con tecnologías de vanguardia." />
-            <meta property="og:url" content="https://www.advantechai.org/DesarrolloWeb" />
-        </Helmet>
-
-        <div className="overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <div className="overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
 
         <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
 
+        {/* ══════════════════════════════════════════════
+            1. HERO — presencia digital profesional
+        ══════════════════════════════════════════════ */}
+        <section className="relative min-h-[100svh] sm:min-h-[90vh] pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 flex items-center overflow-hidden">
+          <div className="absolute inset-0 gradient-mesh" />
+          <div className="absolute inset-0 grid-pattern opacity-50" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
 
-          {/* ─── HERO ─── */}
-          <section className="relative min-h-[100svh] sm:min-h-[90vh] pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 flex items-center overflow-hidden">
-            <div className="absolute inset-0 gradient-mesh" />
-            <div className="absolute inset-0 grid-pattern opacity-50" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-                <div className="space-y-6 sm:space-y-8">
-                  <p className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-widest animate-on-scroll">
-                    <Code2 className="w-3.5 h-3.5 shrink-0" />
-                    Desarrollo Web
-                  </p>
-                  <h1
-                    className="text-[2rem] sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-balance animate-slide-up"
-                    style={{ fontFamily: "'Inter Tight', sans-serif" }}
-                  >
-                    Plataformas web de{' '}
-                    <span className="text-accent">alto rendimiento</span>
-                  </h1>
-                  <p className="text-base sm:text-lg md:text-xl text-primary-dark/60 leading-relaxed max-w-xl animate-slide-up stagger-1">
-                    Construimos sitios web y aplicaciones full-stack con tecnologías
-                    modernas, enfocados en velocidad, seguridad y una experiencia
-                    de usuario excepcional.
-                  </p>
-                  <div className="flex flex-wrap gap-x-6 gap-y-4 animate-slide-up stagger-1">
-                    {stats.map(({ value, label }) => (
-                      <div key={label} className="flex flex-col">
-                        <span className="text-xl sm:text-2xl font-bold text-accent" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                          {value}
-                        </span>
-                        <span className="text-xs text-primary-dark/50 mt-0.5 leading-snug max-w-[130px]">{label}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 animate-slide-up stagger-2">
-                    <a href="#contacto" className="btn-primary text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 text-center">
-                      Empezar proyecto
-                      <ArrowRight className="w-4 h-4 ml-2 shrink-0" />
-                    </a>
-                    <button
-                      onClick={() => navigate(-1)}
-                      className="btn-secondary text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5"
+              {/* Copy */}
+              <div className="space-y-6 sm:space-y-8">
+                <p className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-widest animate-on-scroll">
+                  <Code2 className="w-3.5 h-3.5 shrink-0" />
+                  Desarrollo Web
+                </p>
+                <h1
+                  className="text-[2rem] sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-balance animate-slide-up"
+                  style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                >
+                  Tu presencia digital profesional,{' '}
+                  <span className="relative inline-block">
+                    <span className="relative z-10 text-accent">construida con criterio.</span>
+                    <svg
+                      className="absolute -bottom-2 left-0 w-full h-3 text-accent/30"
+                      viewBox="0 0 200 12"
+                      preserveAspectRatio="none"
+                      aria-hidden="true"
                     >
-                      Ver todos los servicios
-                    </button>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center lg:justify-end animate-scale-in stagger-2 py-10 sm:py-8">
-                  <HeroVisual />
-                </div>
-              </div>
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent" />
-          </section>
-
-          {/* ─── QUÉ ES ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 relative">
-            <div className="absolute inset-0 dot-pattern opacity-30" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-20 items-center">
-                <div>
-                  <SectionLabel>Concepto</SectionLabel>
-                  <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                    ¿Qué es el{' '}
-                    <span className="text-accent">desarrollo web full-stack</span>?
-                  </h2>
-                  <p className="text-sm sm:text-base text-primary-dark/60 leading-relaxed mb-4 sm:mb-6 animate-on-scroll">
-                    El desarrollo full-stack abarca tanto el frontend (lo que el
-                    usuario ve) como el backend (la lógica, bases de datos y
-                    servidores). Esto nos permite construir soluciones completas,
-                    integradas y funcionales desde el primer día.
-                  </p>
-                  <div className="space-y-3 animate-on-scroll">
-                    {whatIsPoints.map((point, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 text-accent" />
-                        </div>
-                        <p className="text-sm text-primary-dark/70 leading-relaxed">{point}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="animate-on-scroll">
-                  <div
-                    className="rounded-2xl border border-border/40 bg-background p-6 sm:p-8 relative overflow-hidden"
-                    style={{ boxShadow: '0 4px 32px rgba(0,0,0,0.05)' }}
-                  >
-                    <span className="absolute inset-x-0 top-0 h-1 bg-accent/80" />
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5 sm:mb-6">
-                      <LightbulbIcon className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-3">
-                      Tu negocio en el mundo digital
-                    </h3>
-                    <p className="text-sm text-primary-dark/60 leading-relaxed mb-4 sm:mb-5">
-                      Una web bien desarrollada no es un gasto, es una inversión que
-                      genera visibilidad, credibilidad y ventas. Trabajamos para que
-                      tu sitio sea el mejor embajador de tu marca.
-                    </p>
-                    <div className="flex items-start gap-3 p-3 sm:p-4 rounded-xl bg-accent/6 border border-accent/20">
-                      <AlertCircle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      <p className="text-xs text-primary-dark/70 leading-relaxed">
-                        <strong className="text-primary-dark">Dato clave:</strong> El 94% de
-                        los usuarios juzgan la credibilidad de una empresa por el diseño
-                        de su sitio web.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ─── CASOS DE USO ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
-            <div className="absolute inset-0 grid-pattern opacity-40" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-                <SectionLabel>Casos de uso</SectionLabel>
-                <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                  Sitios web que{' '}
-                  <span className="text-accent">generan resultados</span>
-                </h2>
-                <p className="section-subtitle mx-auto animate-on-scroll">
-                  Desde sitios corporativos hasta plataformas complejas, creamos
-                  soluciones que cumplen con tus objetivos.
+                      <path d="M0,8 Q50,0 100,8 T200,8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-primary-dark/60 leading-relaxed max-w-xl animate-slide-up stagger-1">
+                  Desarrollamos sitios web corporativos, institucionales y de
+                  comercio electrónico que comunican con claridad, ofrecen una
+                  experiencia fluida al visitante y representan fielmente el
+                  nivel de tu empresa.
                 </p>
-              </div>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                {useCases.map(({ Icon, title, description, example }, i) => (
-                  <div
-                    key={i}
-                    className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col hover:border-accent/40 transition-colors duration-200 overflow-hidden"
-                    style={{ animationDelay: `${i * 0.08}s` }}
-                  >
-                    <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                    <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-2">{title}</h3>
-                    <p className="text-sm text-primary-dark/60 leading-relaxed mb-4 flex-1">{description}</p>
-                    <div className="flex items-start gap-2 p-2.5 sm:p-3 rounded-lg bg-accent/6 border border-accent/15 mt-auto">
-                      <span className="text-accent text-xs font-semibold shrink-0 mt-0.5">Ej.</span>
-                      <p className="text-xs text-primary-dark/60 leading-relaxed">{example}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
-          {/* ─── PROCESO ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 relative">
-            <div className="absolute inset-0 dot-pattern opacity-30" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-                <SectionLabel>Proceso</SectionLabel>
-                <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                  De la idea al sitio web,{' '}
-                  <span className="text-accent">paso a paso</span>
-                </h2>
-                <p className="section-subtitle mx-auto animate-on-scroll">
-                  Un proceso colaborativo que garantiza que el resultado final
-                  supere tus expectativas.
-                </p>
-              </div>
-              <div className="relative max-w-3xl mx-auto">
-                <div className="absolute left-[19px] top-10 bottom-10 w-px bg-border/40 hidden sm:block" />
-                {process.map(({ step, title, description, deliverable, time }, i) => (
-                  <div
-                    key={i}
-                    className="relative flex gap-4 sm:gap-5 animate-on-scroll pb-6 sm:pb-10 last:pb-0"
-                    style={{ animationDelay: `${i * 0.1}s` }}
-                  >
-                    <div className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-accent bg-background flex items-center justify-center shrink-0">
-                      <span className="text-[10px] sm:text-xs font-bold text-accent" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                        {step}
+                {/* Stats */}
+                <div className="flex flex-wrap gap-x-6 gap-y-4 animate-slide-up stagger-1">
+                  {stats.map(({ value, label }) => (
+                    <div key={label} className="flex flex-col min-w-0">
+                      <span
+                        className="text-xl sm:text-2xl font-bold text-accent"
+                        style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                      >
+                        {value}
+                      </span>
+                      <span className="text-xs text-primary-dark/50 mt-0.5 leading-snug max-w-[150px]">
+                        {label}
                       </span>
                     </div>
-                    <div
-                      className="flex-1 min-w-0 rounded-2xl border border-border/40 bg-background p-4 sm:p-5 hover:border-accent/30 transition-colors duration-200"
-                      style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.04)' }}
-                    >
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                        <h3 className="text-sm sm:text-base font-semibold text-primary-dark">{title}</h3>
-                        <span className="text-[10px] sm:text-[11px] font-medium text-accent bg-accent/8 border border-accent/20 rounded-full px-2 sm:px-2.5 py-0.5 flex items-center gap-1 whitespace-nowrap">
-                          <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                          {time}
-                        </span>
-                      </div>
-                      <p className="text-sm text-primary-dark/60 leading-relaxed mb-3 sm:mb-4">{description}</p>
-                      <div className="flex items-start gap-2 p-2.5 sm:p-3 rounded-lg bg-accent/5 border border-accent/15">
-                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0 mt-0.5" />
-                        <p className="text-xs text-primary-dark/60 leading-snug">
-                          <strong className="text-primary-dark font-medium">Entregable: </strong>
-                          {deliverable}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ─── PLANES ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
-            <div className="absolute inset-0 grid-pattern opacity-40" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-                <SectionLabel>Inversión</SectionLabel>
-                <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                  Elige el plan que se adapta{' '}
-                  <span className="text-accent">a tu proyecto web</span>
-                </h2>
-                <p className="section-subtitle mx-auto animate-on-scroll">
-                  Precios referenciales. Cada proyecto es único y ofrecemos cotizaciones
-                  personalizadas.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
-                {plans.map(({ name, price, description, features, notIncluded, cta, highlighted }, i) => (
-                  <div
-                    key={i}
-                    className={`relative animate-on-scroll rounded-2xl border bg-background p-5 sm:p-7 flex flex-col overflow-hidden transition-all duration-200
-                      ${highlighted
-                        ? 'border-accent shadow-lg shadow-accent/10 md:scale-[1.02]'
-                        : 'border-border/40 hover:border-accent/40'
-                      }`}
-                    style={{ animationDelay: `${i * 0.1}s` }}
-                  >
-                    {highlighted && (
-                      <>
-                        <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
-                        <span className="absolute top-4 right-4 sm:top-5 sm:right-5 text-[9px] sm:text-[10px] font-bold text-white bg-accent rounded-full px-2 sm:px-2.5 py-0.5 sm:py-1 uppercase tracking-widest">
-                          Más elegido
-                        </span>
-                      </>
-                    )}
-                    <div className="mb-4 sm:mb-6">
-                      <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-1">{name}</h3>
-                      <p className="text-xl sm:text-2xl font-bold text-primary-dark mb-2 sm:mb-3" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                        {price}
-                      </p>
-                      <p className="text-xs sm:text-sm text-primary-dark/55 leading-relaxed">{description}</p>
-                    </div>
-                    <div className="space-y-2 sm:space-y-2.5 flex-1 mb-4 sm:mb-6">
-                      {features.map((f, j) => (
-                        <div key={j} className="flex items-start gap-2 sm:gap-2.5">
-                          <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-primary-dark/70 leading-snug">{f}</span>
-                        </div>
-                      ))}
-                      {notIncluded.map((f, j) => (
-                        <div key={j} className="flex items-start gap-2 sm:gap-2.5 opacity-40">
-                          <X className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary-dark/40 shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-primary-dark/40 leading-snug">{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <a
-                      href="#contacto"
-                      className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors duration-150 ${
-                        highlighted
-                          ? 'bg-accent text-white hover:bg-accent/90'
-                          : 'bg-accent/10 text-accent hover:bg-accent/20'
-                      }`}
-                    >
-                      {cta}
-                      <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ─── SOCIAL PROOF ─── */}
-          <section className="py-12 sm:py-16 border-y border-border/30 relative overflow-hidden">
-            <div className="absolute inset-0 dot-pattern opacity-20" />
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
-                {[
-                  { Icon: TrendingUp, value: '99.9%', label: 'Disponibilidad' },
-                  { Icon: Zap, value: '1.2s', label: 'Carga promedio' },
-                  { Icon: Users, value: '60+', label: 'Sitios entregados' },
-                ].map(({ Icon, value, label }, i) => (
-                  <div key={i} className="flex flex-col items-center gap-2 sm:gap-3 animate-on-scroll" style={{ animationDelay: `${i * 0.1}s` }}>
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
-                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                    <span className="text-2xl sm:text-3xl font-bold text-primary-dark" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                      {value}
-                    </span>
-                    <span className="text-xs sm:text-sm text-primary-dark/50">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ─── FAQ ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 relative">
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-              <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
-                <div>
-                  <SectionLabel>Preguntas frecuentes</SectionLabel>
-                  <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                    Todo lo que necesitas saber{' '}
-                    <span className="text-accent">sobre desarrollo web</span>
-                  </h2>
-                  <p className="section-subtitle animate-on-scroll">
-                    Resolvemos las dudas más comunes para que tomes la mejor decisión.
-                  </p>
-                  <div className="mt-6 sm:mt-8 animate-on-scroll">
-                    <a href="#contacto" className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline underline-offset-4">
-                      Tengo otra pregunta
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-                <div className="divide-y divide-border/30 border-t border-border/30 animate-on-scroll">
-                  {faqs.map((faq, i) => (
-                    <FaqItem key={i} {...faq} />
                   ))}
                 </div>
+
+                {/* CTAs */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 animate-slide-up stagger-2">
+                  <a
+                    href="#contacto"
+                    className="btn-primary text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5 text-center"
+                  >
+                    Hablar sobre mi proyecto
+                    <ArrowRight className="w-4 h-4 ml-2 shrink-0" />
+                  </a>
+                  <button
+                    onClick={() => navigate(-1)}
+                    className="btn-secondary text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5"
+                  >
+                    Ver todos los servicios
+                  </button>
+                </div>
+              </div>
+
+              {/* Visual */}
+              <div className="flex items-center justify-center lg:justify-end animate-scale-in stagger-2 py-10 sm:py-8">
+                <HeroVisual />
               </div>
             </div>
-          </section>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white to-transparent" />
+        </section>
 
-          {/* ─── CTA ─── */}
-          <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
-            <div className="absolute inset-0 gradient-mesh opacity-60" />
-            <div className="absolute inset-0 grid-pattern opacity-40" />
-            <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-              <SectionLabel>Empecemos</SectionLabel>
-              <h2
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-primary-dark mb-4 sm:mb-6 animate-on-scroll"
-                style={{ fontFamily: "'Inter Tight', sans-serif" }}
-              >
-                Dale a tu negocio la{' '}
-                <span className="text-accent">presencia digital que merece</span>
+        {/* ══════════════════════════════════════════════
+            2. EL PROBLEMA — sitios que no representan bien a la empresa
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 relative">
+          <div className="absolute inset-0 dot-pattern opacity-30" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <SectionLabel>El problema real</SectionLabel>
+              <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                La mayoría de sitios web existen.{' '}
+                <span className="text-accent">Pocos representan bien a la empresa.</span>
               </h2>
-              <p className="text-base sm:text-lg text-primary-dark/60 mb-8 sm:mb-10 animate-on-scroll">
-                Cuéntanos tu idea y te ayudaremos a materializarla en una plataforma
-                web de alto nivel. Propuesta personalizada y sin compromiso.
+              <p className="section-subtitle mx-auto animate-on-scroll">
+                Un sitio web que no comunica con claridad, que no ofrece una
+                buena experiencia de navegación y que no se puede actualizar
+                fácilmente es una oportunidad de negocio desaprovechada.
               </p>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 animate-on-scroll">
-                <a href="#contacto" className="btn-primary text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4 text-center">
-                  Solicitar asesoría
-                  <ArrowRight className="w-4 h-4 ml-2 shrink-0" />
-                </a>
-                <button
-                  onClick={() => navigate(-1)}
-                  className="btn-secondary text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4"
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {painPoints.map(({ Icon, title, description }, i) => (
+                <div
+                  key={i}
+                  className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col
+                             hover:border-accent/40 transition-colors duration-200 overflow-hidden"
+                  style={{ animationDelay: `${i * 0.08}s` }}
                 >
-                  Ver todos los servicios
-                </button>
+                  <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5 shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-2">{title}</h3>
+                  <p className="text-sm text-primary-dark/60 leading-relaxed">{description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 sm:mt-10 max-w-3xl mx-auto animate-on-scroll">
+              <div className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl bg-accent/6 border border-accent/20">
+                <AlertCircle className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                <p className="text-sm text-primary-dark/70 leading-relaxed">
+                  <strong className="text-primary-dark">Nuestro enfoque:</strong> primero
+                  entendemos tu negocio, después diseñamos el sitio. Un sitio bien
+                  construido facilita que los visitantes entiendan quién eres,
+                  qué ofreces y cómo contactarte — sin complicaciones.
+                </p>
               </div>
-              <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 animate-on-scroll">
-                {[
-                  { Icon: HeartHandshake, text: 'Asesoría sin compromiso' },
-                  { Icon: Settings, text: 'Propuesta a medida' },
-                  { Icon: Shield, text: 'Código de calidad' },
-                ].map(({ Icon, text }, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-primary-dark/50">
-                    <Icon className="w-4 h-4 text-accent shrink-0" />
-                    {text}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            3. LA TRANSFORMACIÓN — qué cambia con un sitio profesional
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
+
+              {/* Left — sticky en desktop */}
+              <div className="lg:sticky lg:top-32">
+                <SectionLabel>Lo que cambia</SectionLabel>
+                <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                  Lo que mejora cuando tu sitio{' '}
+                  <span className="text-accent">está bien construido desde el inicio</span>
+                </h2>
+                <p className="section-subtitle animate-on-scroll">
+                  El diseño no es decoración. Es la forma en que tu empresa
+                  se presenta al mundo. Un sitio profesional transmite confianza,
+                  claridad y seriedad desde el primer momento.
+                </p>
+                <div className="mt-6 sm:mt-8 p-4 sm:p-5 rounded-2xl border border-accent/20 bg-accent/5 animate-on-scroll">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <p className="text-sm text-primary-dark/70 leading-relaxed">
+                      Empezamos siempre por{' '}
+                      <strong className="text-primary-dark">entender tu negocio</strong>,
+                      no por elegir una plantilla. El diseño y la estructura
+                      son consecuencia de tus objetivos — no al revés.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right — timeline */}
+              <div className="relative mt-4 lg:mt-0">
+                <div className="absolute left-[19px] top-10 bottom-10 w-px bg-border/40 hidden sm:block" />
+                {transformation.map(({ num, section, what, why }, i) => (
+                  <div
+                    key={i}
+                    className="relative flex gap-4 sm:gap-5 animate-on-scroll pb-6 sm:pb-8 last:pb-0"
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    <div className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-accent/30 bg-background flex items-center justify-center shrink-0">
+                      <span
+                        className="text-[10px] sm:text-[11px] font-bold text-accent"
+                        style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                      >
+                        {num}
+                      </span>
+                    </div>
+                    <div className="pt-1 sm:pt-1.5 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-1">
+                        <h3 className="text-sm sm:text-base font-semibold text-primary-dark">{section}</h3>
+                        <span className="text-[10px] sm:text-[11px] font-medium text-accent/80 bg-accent/8 border border-accent/20 rounded-full px-2 sm:px-2.5 py-0.5 leading-snug whitespace-nowrap">
+                          {what}
+                        </span>
+                      </div>
+                      <p className="text-sm text-primary-dark/60 leading-relaxed">{why}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-          </section>
-        </div>
-        <Footer/>
+          </div>
+        </section>
+
+
+        {/* ══════════════════════════════════════════════
+            4. CASOS DE USO — tipos de sitios web
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 relative">
+          <div className="absolute inset-0 dot-pattern opacity-30" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <SectionLabel>Qué tipo de sitio necesitas</SectionLabel>
+              <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                El sitio que tu empresa necesita,{' '}
+                <span className="text-accent">según lo que quieras comunicar</span>
+              </h2>
+              <p className="section-subtitle mx-auto animate-on-scroll">
+                Desarrollamos desde sitios corporativos hasta tiendas online.
+                Lo que tienen en común es que responden a un objetivo de
+                comunicación claro, no a una plantilla genérica.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {useCases.map(({ Icon, title, description, example }, i) => (
+                <div
+                  key={i}
+                  className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col
+                             hover:border-accent/40 transition-colors duration-200 overflow-hidden"
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5 shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-2">{title}</h3>
+                  <p className="text-sm text-primary-dark/60 leading-relaxed mb-4 flex-1">{description}</p>
+                  <div className="flex items-start gap-2 p-2.5 sm:p-3 rounded-lg bg-accent/6 border border-accent/15 mt-auto">
+                    <span className="text-accent text-xs font-semibold shrink-0 mt-0.5">Ej.</span>
+                    <p className="text-xs text-primary-dark/60 leading-relaxed">{example}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            5. QUÉ INCLUYE — alcance completo
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <SectionLabel>Lo que obtienes</SectionLabel>
+              <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                Todo lo que cubre{' '}
+                <span className="text-accent">cada proyecto que desarrollamos.</span>
+              </h2>
+              <p className="section-subtitle mx-auto animate-on-scroll">
+                Trabajamos con un alcance completo desde el inicio: estrategia,
+                diseño, construcción y analítica. Sin piezas sueltas que tengas
+                que coordinar con otros proveedores.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {included.map(({ Icon, title, items }, i) => (
+                <div
+                  key={i}
+                  className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col
+                             hover:border-accent/40 transition-colors duration-200 overflow-hidden"
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5 shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-3 sm:mb-4">{title}</h3>
+                  <ul className="space-y-2 sm:space-y-2.5 mt-auto">
+                    {items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 sm:gap-2.5">
+                        <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0 mt-0.5" />
+                        <span className="text-xs sm:text-sm text-primary-dark/60 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            6. PROCESO — simple y orientado al cliente
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 relative">
+          <div className="absolute inset-0 dot-pattern opacity-30" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <SectionLabel>Cómo trabajamos</SectionLabel>
+              <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                Sin tecnicismos, sin sorpresas,{' '}
+                <span className="text-accent">con entregables concretos en cada etapa</span>
+              </h2>
+              <p className="section-subtitle mx-auto animate-on-scroll">
+                Sabemos que involucrar a una agencia externa en un proyecto digital
+                puede dar vértigo. Por eso trabajamos con un proceso claro donde
+                tú apruebas cada paso antes de continuar.
+              </p>
+            </div>
+
+            <div className="relative max-w-3xl mx-auto">
+              <div className="absolute left-[19px] top-10 bottom-10 w-px bg-border/40 hidden sm:block" />
+              {process.map(({ step, title, description, deliverable, time }, i) => (
+                <div
+                  key={i}
+                  className="relative flex gap-4 sm:gap-5 animate-on-scroll pb-6 sm:pb-10 last:pb-0"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-accent bg-background flex items-center justify-center shrink-0">
+                    <span
+                      className="text-[10px] sm:text-xs font-bold text-accent"
+                      style={{ fontFamily: "'Inter Tight', sans-serif" }}
+                    >
+                      {step}
+                    </span>
+                  </div>
+                  <div
+                    className="flex-1 min-w-0 rounded-2xl border border-border/40 bg-background p-4 sm:p-5 hover:border-accent/30 transition-colors duration-200"
+                    style={{ boxShadow: '0 2px 16px rgba(0,0,0,0.04)' }}
+                  >
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                      <h3 className="text-sm sm:text-base font-semibold text-primary-dark">{title}</h3>
+                      <span className="text-[10px] sm:text-[11px] font-medium text-accent bg-accent/8 border border-accent/20 rounded-full px-2 sm:px-2.5 py-0.5 flex items-center gap-1 whitespace-nowrap">
+                        <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                        {time}
+                      </span>
+                    </div>
+                    <p className="text-sm text-primary-dark/60 leading-relaxed mb-3 sm:mb-4">{description}</p>
+                    <div className="flex items-start gap-2 p-2.5 sm:p-3 rounded-lg bg-accent/5 border border-accent/15">
+                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0 mt-0.5" />
+                      <p className="text-xs text-primary-dark/60 leading-snug">
+                        <strong className="text-primary-dark font-medium">Entregable: </strong>
+                        {deliverable}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8 sm:mt-10 animate-on-scroll">
+              <div className="inline-flex items-center gap-2 text-xs sm:text-sm text-primary-dark/60 bg-border/20 border border-border/40 rounded-full px-4 sm:px-5 py-2 sm:py-2.5">
+                <Clock className="w-4 h-4 text-accent shrink-0" />
+                Tiempo total estimado:{' '}
+                <span className="font-semibold text-primary-dark ml-1">4 – 8 semanas según alcance</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            7. INVERSIÓN — cotización a la medida
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
+          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+              <SectionLabel>Inversión</SectionLabel>
+              <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                Cada negocio es distinto.{' '}
+                <span className="text-accent">Tu sitio también lo es.</span>
+              </h2>
+              <p className="section-subtitle mx-auto animate-on-scroll">
+                No manejamos paquetes cerrados. El alcance real del proyecto
+                define la inversión — y eso varía según lo que tu empresa
+                necesita. Esto es lo que más influye:
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-14">
+              {quoteFactors.map(({ Icon, title, description }, i) => (
+                <div
+                  key={i}
+                  className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col
+                             hover:border-accent/40 transition-colors duration-200 overflow-hidden"
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5 shrink-0">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-2">{title}</h3>
+                  <p className="text-sm text-primary-dark/60 leading-relaxed">{description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Bloque central de cotización */}
+            <div className="max-w-2xl mx-auto animate-on-scroll">
+              <div
+                className="relative rounded-2xl border border-accent/30 bg-accent/5 p-6 sm:p-10 text-center overflow-hidden"
+                style={{ boxShadow: '0 4px 32px rgba(0,0,0,0.05)' }}
+              >
+                <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/15 flex items-center justify-center text-accent mx-auto mb-5 sm:mb-6">
+                  <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-primary-dark mb-3">
+                  Cuéntanos qué necesitas y te decimos exactamente cuánto cuesta
+                </h3>
+                <p className="text-sm sm:text-base text-primary-dark/60 leading-relaxed mb-6 sm:mb-8 max-w-md mx-auto">
+                  En menos de 24 horas te respondemos con una propuesta clara,
+                  detallada y sin letra pequeña. Tú decides si avanzamos.
+                </p>
+                <a
+                  href="#contacto"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-medium bg-accent text-white hover:bg-accent/90 transition-colors duration-150"
+                >
+                  Solicitar mi cotización
+                  <ArrowRight className="w-4 h-4 shrink-0" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            8. FAQ — objeciones reales
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 relative">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
+              <div>
+                <SectionLabel>Preguntas frecuentes</SectionLabel>
+                <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
+                  Lo que suelen preguntarnos{' '}
+                  <span className="text-accent">antes de empezar</span>
+                </h2>
+                <p className="section-subtitle animate-on-scroll">
+                  Resolvemos las dudas más comunes. Si la tuya no está aquí,
+                  escríbenos y te respondemos en menos de 24 horas.
+                </p>
+                <div className="mt-6 sm:mt-8 animate-on-scroll">
+                  <a
+                    href="#contacto"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline underline-offset-4"
+                  >
+                    Tengo otra pregunta
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+              <div className="divide-y divide-border/30 border-t border-border/30 animate-on-scroll">
+                {faqs.map((faq, i) => (
+                  <FaqItem key={i} {...faq} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            9. CTA FINAL
+        ══════════════════════════════════════════════ */}
+        <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 gradient-mesh opacity-60" />
+          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
+            <SectionLabel>Empecemos</SectionLabel>
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight text-primary-dark mb-4 sm:mb-6 animate-on-scroll"
+              style={{ fontFamily: "'Inter Tight', sans-serif" }}
+            >
+              Si tu sitio web no representa el nivel de tu empresa,{' '}
+              <span className="text-accent">es el momento de cambiarlo.</span>
+            </h2>
+            <p className="text-base sm:text-lg text-primary-dark/60 mb-8 sm:mb-10 animate-on-scroll">
+              Cuéntanos tu proyecto: qué tiene hoy tu sitio, qué necesita y qué
+              quieres lograr con él. Te respondemos con una propuesta clara,
+              detallada y sin compromiso.
+            </p>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 animate-on-scroll">
+              <a
+                href="#contacto"
+                className="btn-primary text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4 text-center"
+              >
+                Agendar reunión gratuita
+                <ArrowRight className="w-4 h-4 ml-2 shrink-0" />
+              </a>
+              <button
+                onClick={() => navigate(-1)}
+                className="btn-secondary text-sm sm:text-base px-7 sm:px-8 py-3.5 sm:py-4"
+              >
+                Ver todos los servicios
+              </button>
+            </div>
+            <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 animate-on-scroll">
+              {[
+                { Icon: HeartHandshake, text: 'Sin compromiso en la primera reunión' },
+                { Icon: PenTool,        text: 'Propuesta adaptada a tu proyecto' },
+                { Icon: Shield,         text: 'Acompañamiento durante todo el proceso' },
+              ].map(({ Icon, text }, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-primary-dark/50">
+                  <Icon className="w-4 h-4 text-accent shrink-0" />
+                  {text}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <Footer />
     </>
   );
 }

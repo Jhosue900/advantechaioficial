@@ -11,14 +11,6 @@ export default function Footer() {
             <p className="text-white/60 mt-4 max-w-md leading-relaxed">
               Transformamos procesos complejos en sistemas inteligentes. Software empresarial, automatización e inteligencia artificial para empresas que quieren crecer.
             </p>
-            <div className="flex gap-4 mt-6">
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:bg-highlight/20 hover:text-highlight transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:bg-highlight/20 hover:text-highlight transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           <div>

@@ -1,11 +1,17 @@
 import { Menu, X, ArrowRight, Cpu } from 'lucide-react';
+import LOGONOBG from '../Images/LOGONOBG.png'
+import { useNavigate } from 'react-router-dom';
 
 function Logo() {
+
+  const navigate = useNavigate()
   return (
-    <a href="#" className="flex items-center gap-3 group">
-      <div className="relative w-10 h-10 rounded-xl bg-primary-dark flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:bg-accent">
-        <div className="absolute inset-0 bg-gradient-to-br from-highlight/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-        <Cpu className="w-5 h-5 text-white relative z-10" />
+    <a onClick={ () => {
+      navigate("/")
+    }} className="flex items-center gap-3 group">
+      <div className="relative w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden transition-all duration-300">
+        <img src={LOGONOBG}/>
+        
       </div>
       <span className="text-xl font-bold tracking-tight">
         <span className="text-primary-dark">Advantech</span>
