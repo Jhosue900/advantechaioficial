@@ -59,7 +59,6 @@ function Home() {
       <ServicesSection />
       <SolutionsSection />
       <ProcessSection />
-      <AboutSection />
       <CTASection />
       <Footer />
     </div>

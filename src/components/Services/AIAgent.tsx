@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import {
   ArrowRight, Brain, Cpu, Zap, Users, BarChart3, Shield, CheckCircle2,
   ChevronDown, Clock, Target, GitBranch, Database, Sparkles, AlertCircle,
-  LightbulbIcon, X, Check, Settings, HeartHandshake, TrendingUp,
+  LightbulbIcon, Check, Settings, HeartHandshake, TrendingUp, DollarSign,
 } from 'lucide-react';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
@@ -84,53 +84,22 @@ const process = [
   },
 ];
 
-const plans = [
+// Factores que determinan la cotización
+const quoteFactors = [
   {
-    name: 'Starter',
-    price: 'Desde $1,200 USD',
-    description: 'Para empresas que dan sus primeros pasos en automatización con IA.',
-    features: [
-      '1 agente especializado',
-      'Integración con hasta 3 APIs',
-      'Entrenamiento básico',
-      'Dashboard de monitoreo',
-      '1 mes de soporte post-lanzamiento',
-    ],
-    notIncluded: ['Entrenamiento continuo', 'Integraciones avanzadas'],
-    cta: 'Solicitar cotización',
-    highlighted: false,
+    Icon: Brain,
+    title: 'La complejidad del agente',
+    description: 'No es lo mismo un agente que responde una tarea puntual que uno que coordina múltiples decisiones y flujos de trabajo en simultáneo.',
   },
   {
-    name: 'Business',
-    price: 'Desde $2,800 USD',
-    description: 'El plan más popular para empresas con flujos complejos y múltiples sistemas.',
-    features: [
-      '3 agentes coordinados',
-      'Integración con hasta 10 APIs',
-      'Entrenamiento con datos históricos',
-      'Dashboard personalizado',
-      'Entrenamiento continuo (3 meses)',
-      'Soporte prioritario',
-    ],
-    notIncluded: [],
-    cta: 'Solicitar cotización',
-    highlighted: true,
+    Icon: Database,
+    title: 'Las integraciones que necesitas',
+    description: 'Conexión con APIs, CRM, ERP o bases de datos propias — cada integración define el alcance real del desarrollo.',
   },
   {
-    name: 'Enterprise',
-    price: 'Desde $5,500 USD',
-    description: 'Para organizaciones que necesitan una solución de IA a gran escala y totalmente personalizada.',
-    features: [
-      'Agentes ilimitados',
-      'Integración con cualquier sistema (ERP, CRM, etc.)',
-      'Entrenamiento avanzado con fine-tuning',
-      'Infraestructura dedicada (cloud privada)',
-      'Entrenamiento continuo (12 meses)',
-      'Soporte 24/7 con ingenieros dedicados',
-    ],
-    notIncluded: [],
-    cta: 'Solicitar cotización',
-    highlighted: false,
+    Icon: Cpu,
+    title: 'Infraestructura y escalabilidad',
+    description: 'Si necesitas cloud privada, alta disponibilidad o entrenamiento continuo con datos propios, la inversión se ajusta a ese nivel.',
   },
 ];
 
@@ -485,74 +454,66 @@ export default function AIAgent() {
             </div>
           </section>
 
-          {/* ─── PLANES ─── */}
+          {/* ─── INVERSIÓN — cotización a la medida ─── */}
           <section className="py-16 sm:py-24 lg:py-32 bg-background relative overflow-hidden">
             <div className="absolute inset-0 grid-pattern opacity-40" />
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
               <div className="text-center mb-10 sm:mb-14 lg:mb-16">
                 <SectionLabel>Inversión</SectionLabel>
                 <h2 className="section-title mb-4 sm:mb-6 animate-on-scroll">
-                  Elige el nivel de autonomía{' '}
-                  <span className="text-accent">que tu negocio necesita</span>
+                  Cada negocio es distinto.{' '}
+                  <span className="text-accent">Tu agente también lo es.</span>
                 </h2>
                 <p className="section-subtitle mx-auto animate-on-scroll">
-                  Precios referenciales. Cada proyecto es único, por lo que ofrecemos
-                  cotizaciones personalizadas sin compromiso.
+                  No manejamos paquetes cerrados. El alcance real del proyecto
+                  define la inversión — y eso varía según lo que tu empresa
+                  necesita. Esto es lo que más influye:
                 </p>
               </div>
-              <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-start">
-                {plans.map(({ name, price, description, features, notIncluded, cta, highlighted }, i) => (
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-10 sm:mb-14">
+                {quoteFactors.map(({ Icon, title, description }, i) => (
                   <div
                     key={i}
-                    className={`relative animate-on-scroll rounded-2xl border bg-background p-5 sm:p-7 flex flex-col overflow-hidden transition-all duration-200
-                      ${highlighted
-                        ? 'border-accent shadow-lg shadow-accent/10 md:scale-[1.02]'
-                        : 'border-border/40 hover:border-accent/40'
-                      }`}
-                    style={{ animationDelay: `${i * 0.1}s` }}
+                    className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-5 sm:p-6 flex flex-col
+                               hover:border-accent/40 transition-colors duration-200 overflow-hidden"
+                    style={{ animationDelay: `${i * 0.08}s` }}
                   >
-                    {highlighted && (
-                      <>
-                        <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
-                        <span className="absolute top-4 right-4 sm:top-5 sm:right-5 text-[9px] sm:text-[10px] font-bold text-white bg-accent rounded-full px-2 sm:px-2.5 py-0.5 sm:py-1 uppercase tracking-widest">
-                          Más elegido
-                        </span>
-                      </>
-                    )}
-                    <div className="mb-4 sm:mb-6">
-                      <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-1">{name}</h3>
-                      <p className="text-xl sm:text-2xl font-bold text-primary-dark mb-2 sm:mb-3" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                        {price}
-                      </p>
-                      <p className="text-xs sm:text-sm text-primary-dark/55 leading-relaxed">{description}</p>
+                    <span className="absolute inset-x-0 top-0 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-4 sm:mb-5 shrink-0">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <div className="space-y-2 sm:space-y-2.5 flex-1 mb-4 sm:mb-6">
-                      {features.map((f, j) => (
-                        <div key={j} className="flex items-start gap-2 sm:gap-2.5">
-                          <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-primary-dark/70 leading-snug">{f}</span>
-                        </div>
-                      ))}
-                      {notIncluded.map((f, j) => (
-                        <div key={j} className="flex items-start gap-2 sm:gap-2.5 opacity-40">
-                          <X className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary-dark/40 shrink-0 mt-0.5" />
-                          <span className="text-xs sm:text-sm text-primary-dark/40 leading-snug">{f}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <a
-                      href="#contacto"
-                      className={`inline-flex items-center justify-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors duration-150 ${
-                        highlighted
-                          ? 'bg-accent text-white hover:bg-accent/90'
-                          : 'bg-accent/10 text-accent hover:bg-accent/20'
-                      }`}
-                    >
-                      {cta}
-                      <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    </a>
+                    <h3 className="text-sm sm:text-base font-semibold text-primary-dark mb-2">{title}</h3>
+                    <p className="text-sm text-primary-dark/60 leading-relaxed">{description}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Bloque central de cotización */}
+              <div className="max-w-2xl mx-auto animate-on-scroll">
+                <div
+                  className="relative rounded-2xl border border-accent/30 bg-accent/5 p-6 sm:p-10 text-center overflow-hidden"
+                  style={{ boxShadow: '0 4px 32px rgba(0,0,0,0.05)' }}
+                >
+                  <span className="absolute inset-x-0 top-0 h-1 bg-accent" />
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-accent/15 flex items-center justify-center text-accent mx-auto mb-5 sm:mb-6">
+                    <DollarSign className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-semibold text-primary-dark mb-3">
+                    Cuéntanos qué necesitas y te decimos exactamente cuánto cuesta
+                  </h3>
+                  <p className="text-sm sm:text-base text-primary-dark/60 leading-relaxed mb-6 sm:mb-8 max-w-md mx-auto">
+                    En menos de 24 horas te respondemos con una propuesta clara,
+                    detallada y sin letra pequeña. Tú decides si avanzamos.
+                  </p>
+                  <a
+                    href="#contacto"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl px-6 sm:px-7 py-3 sm:py-3.5 text-sm sm:text-base font-medium bg-accent text-white hover:bg-accent/90 transition-colors duration-150"
+                  >
+                    Solicitar mi cotización
+                    <ArrowRight className="w-4 h-4 shrink-0" />
+                  </a>
+                </div>
               </div>
             </div>
           </section>

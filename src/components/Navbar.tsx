@@ -48,7 +48,6 @@ export default function Navbar({
             <a href="#servicios" className="nav-link">Servicios</a>
             <a href="#soluciones" className="nav-link">Soluciones</a>
             <a href="#proceso" className="nav-link">Proceso</a>
-            <a href="#nosotros" className="nav-link">Nosotros</a>
           </div>
 
           <div className="hidden lg:flex items-center gap-4">

@@ -4,19 +4,16 @@ const solutions = [
   {
     title: 'Plataforma de Automatización Empresarial',
     description: 'Sistema integral que conecta todas tus herramientas y automatiza flujos de trabajo críticos.',
-    stats: 'Reducción de 60% en tareas manuales',
     icon: <Zap className="w-6 h-6" />,
   },
   {
     title: 'Sistema de Inteligencia de Negocios',
-    description: 'Dashboards en tiempo real y análisis predictivo para decisiones basadas en datos.',
-    stats: 'Incremento de 3x en velocidad de decisiones',
+    description: 'Dashboards en tiempo real para decisiones basadas en datos.',
     icon: <TrendingUp className="w-6 h-6" />,
   },
   {
     title: 'Plataforma de Atención al Cliente con IA',
     description: 'Asistentes virtuales inteligentes que mejoran la experiencia del cliente 24/7.',
-    stats: 'Satisfacción del cliente aumentó 45%',
     icon: <MessageSquare className="w-6 h-6" />,
   },
 ];
@@ -43,19 +40,14 @@ export default function SolutionsSection() {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 animate-on-scroll">
               Tecnología que genera{' '}
-              <span className="text-highlight">resultado medibles</span>
+              <span className="text-highlight">resultados competitivos.</span>
             </h2>
             <p className="text-lg text-white/60 leading-relaxed animate-on-scroll">
-              Cada solución está diseñada para resolver problemas específicos de tu industria. No vendemos software genérico, construimos ventajas competitivas.
+              Cada solución está diseñada para resolver problemas específicos de tu industria. No vendemos cualquier software, construimos software que te posiciona ante la competencia.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 animate-on-scroll">
-            <StatCard number="50+" label="Proyectos entregados" />
-            <StatCard number="95%" label="Clientes satisfechos" />
-            <StatCard number="3x" label="ROI promedio" />
-            <StatCard number="24/7" label="Soporte continuo" />
-          </div>
+         
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
@@ -71,8 +63,6 @@ export default function SolutionsSection() {
               <h3 className="text-xl font-semibold text-white mb-3">{solution.title}</h3>
               <p className="text-white/60 mb-5 leading-relaxed">{solution.description}</p>
               <div className="flex items-center gap-2 text-highlight font-medium">
-                <Activity className="w-4 h-4" />
-                <span className="text-sm">{solution.stats}</span>
               </div>
             </div>
           ))}

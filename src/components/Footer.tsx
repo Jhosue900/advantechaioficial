@@ -7,7 +7,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <Logo />
             <p className="text-white/60 mt-4 max-w-md leading-relaxed">
               Transformamos procesos complejos en sistemas inteligentes. Software empresarial, automatización e inteligencia artificial para empresas que quieren crecer.
             </p>

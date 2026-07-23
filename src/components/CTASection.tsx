@@ -102,11 +102,11 @@ export default function CTASection() {
           <div className="relative grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                Listo para transformar{' '}
+              ¿Listo para transformar{' '}
                 <span className="text-highlight">tu operación</span>?
               </h2>
               <p className="text-lg text-white/60 leading-relaxed mb-8">
-                Agenda una consulta gratuita con nuestro equipo. Analizaremos tu situación y propondremos un camino claro hacia la automatización e inteligencia artificial.
+                Agenda una consulta gratuita con nosotros. Analizaremos tu situación y propondremos un camino claro hacia la automatización.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-white/80">
@@ -116,10 +116,6 @@ export default function CTASection() {
                 <div className="flex items-center gap-3 text-white/80">
                   <CheckCircle className="w-5 h-5 text-highlight" />
                   <span>Análisis de oportunidades de automatización</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/80">
-                  <CheckCircle className="w-5 h-5 text-highlight" />
-                  <span>Propuesta personalizada en 5 días</span>
                 </div>
               </div>
             </div>
