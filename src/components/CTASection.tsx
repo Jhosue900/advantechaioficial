@@ -13,7 +13,7 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://n8n.advantechai.org/webhook-test/contact-form', {
+      const response = await fetch('https://n8n.advantechai.org/webhook/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
