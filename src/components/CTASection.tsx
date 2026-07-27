@@ -9,10 +9,28 @@ function ContactForm() {
     mensaje: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Gracias por tu interés. Nos pondremos en contacto pronto.');
+
+    try {
+      const response = await fetch('https://n8n.advantechai.org/webhook-test/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('✅ ¡Gracias por tu interés! Nos pondremos en contacto pronto.');
+        setFormData({ nombre: '', email: '', empresa: '', mensaje: '' }); // Limpia el formulario
+      } else {
+        alert('❌ Ocurrió un error. Por favor, intenta de nuevo más tarde.');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('❌ Error de conexión. Verifica tu internet e intenta de nuevo.');
+    }
   };
 
   return (
