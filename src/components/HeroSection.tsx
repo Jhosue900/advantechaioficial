@@ -211,7 +211,7 @@ export default function HeroSection({
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative min-h-screen pt-32 lg:pt-40 pb-20 lg:pb-32 overflow-hidden"
+      className="relative min-h-screen pt-24 lg:pt-28 pb-20 lg:pb-32 overflow-hidden"
     >
       <div className="absolute inset-0 gradient-mesh" />
       <div className="absolute inset-0 grid-pattern opacity-50" />
