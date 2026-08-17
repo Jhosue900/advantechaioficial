@@ -3,6 +3,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 // Components Importations
 import Home from './Pages/Home'
+import ProjectDetail from './Pages/ProjectDetail';
 
 // Services components importations
 
@@ -29,6 +30,9 @@ function App() {
         <Route path="/AplicacionesWeb" element={<WebApps />} />
         <Route path="/Automatizaciones" element={<Automations />} />
         <Route path="/ChatbotsInteligentes" element={<Chatbots />} />
+
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+
       </Routes>
     </>
   );
