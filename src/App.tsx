@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop'; 
 
 // Components Importations
 import Home from './Pages/Home'
@@ -16,20 +17,20 @@ import Chatbots from './components/Services/Chatbots';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-      {/* Services Routes */}
-
-      <Route path="/AgentesDeIA" element={<AIAgent />} />
-      <Route path="/LandingPages" element={<LandingPages />} />
-      <Route path="/DesarrolloWeb" element={<WebDevelopment />} />
-      <Route path="/AplicacionesWeb" element={<WebApps />} />
-      <Route path="/Automatizaciones" element={<Automations />} />
-      <Route path="/ChatbotsInteligentes" element={<Chatbots />} />
-      
-
-    </Routes>
+        {/* Services Routes */}
+        <Route path="/AgentesDeIA" element={<AIAgent />} />
+        <Route path="/LandingPages" element={<LandingPages />} />
+        <Route path="/DesarrolloWeb" element={<WebDevelopment />} />
+        <Route path="/AplicacionesWeb" element={<WebApps />} />
+        <Route path="/Automatizaciones" element={<Automations />} />
+        <Route path="/ChatbotsInteligentes" element={<Chatbots />} />
+      </Routes>
+    </>
   );
 }
 
