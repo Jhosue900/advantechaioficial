@@ -24,7 +24,7 @@ export default function ProjectsCarousel() {
   if (total === 0) return null;
 
   // 👇 Obtener la URL de la imagen usando import.meta.env (para que Vite la procese)
-  const imageUrl = new URL(project.image, import.meta.url).href;
+  const imageUrl = project.image;
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-background">

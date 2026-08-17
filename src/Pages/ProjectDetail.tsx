@@ -31,7 +31,7 @@ export default function ProjectDetail() {
   }
 
   // 👇 Construir la URL de la imagen
-  const imageUrl = new URL(project.image, import.meta.url).href;
+  const imageUrl = project.image;
   const ogImage = project.ogImage || imageUrl;
 
   // 👇 Datos estructurados (JSON-LD) para SEO

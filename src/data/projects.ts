@@ -40,7 +40,7 @@ export const projects: Project[] = [
       '→ Optimización de rendimiento y SEO avanzado',
       '→ Integración de una experiencia visual orientada a conversión'
     ],
-    image: '/src/Images/projects/weprommx-portada-project-by-advantechai.webp',
+    image: '/Images/projects/weprommx-portada-project-by-advantechai.webp',
     ogImage: 'https://www.advantechai.org/Images/projects/weprommx-portada-project-by-advantechai.webp'
   }
   // Aquí puedes agregar más proyectos en el futuro
