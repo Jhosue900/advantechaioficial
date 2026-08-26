@@ -42,6 +42,35 @@ export const projects: Project[] = [
     ],
     image: '/Images/projects/weprommx-portada-project-by-advantechai.webp',
     ogImage: 'https://www.advantechai.org/Images/projects/weprommx-portada-project-by-advantechai.webp'
-  }
+  },
   // Aquí puedes agregar más proyectos en el futuro
+
+  {
+    id: 'weprom-promocionales',
+    title: 'WeProm | Artículos Promocionales',
+    subtitle: 'Plataforma comercial y dashboard administrativo',
+    year: '2026',
+    tech: ['React.js', 'Tailwind CSS', 'Node.js'],
+    description:
+      'Plataforma web comercial y administrativa para la división internacional de artículos promocionales de WeProm LATAM. Integra una landing page interactiva con un Dashboard Administrativo privado (CRUD).',
+    challenge:
+      'Crear un sistema unificado que permitiera tanto al cliente final cotizar productos como al equipo administrativo gestionar catálogos de forma autónoma y segura.',
+    solution:
+      'Desarrollo de una arquitectura Full-Stack conectando React y Tailwind con Node.js y Supabase para asegurar persistencia de datos en tiempo real y autenticación robusta.',
+    results:
+      'Automatización completa del flujo de solicitudes comerciales y optimización en la administración de inventarios digitales.',
+    stack: ['React.js', 'Tailwind CSS', 'Node.js', 'Supabase', 'Vercel', 'Canva Design', 'Vite', 'npm'],
+    link: 'https://promocionales.weprom.mx/',
+    highlights: [
+      '→ Arquitectura Full-Stack con autenticación y roles',
+      '→ Panel administrativo con operaciones CRUD',
+      '→ Landing page de alta conversión',
+      '→ Integración con Supabase para datos en tiempo real',
+      '→ Diseño responsive y optimización de rendimiento',
+      '→ Flujo de cotización automatizado'
+    ],
+    image: '/Images/projects/weprompromocionales-portada-project-by-advantechai.webp',
+    ogImage: 'https://www.advantechai.org/Images/projects/weprompromocionales-portada-project-by-advantechai.webp'
+  },
+
 ];
