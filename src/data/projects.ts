@@ -73,4 +73,32 @@ export const projects: Project[] = [
     ogImage: 'https://www.advantechai.org/Images/projects/weprompromocionales-portada-project-by-advantechai.webp'
   },
 
+  {
+    id: 'ortopedia-justo-sierra',
+    title: 'Ortopedia Justo Sierra | Unidad de Especialidades Ortopédicas',
+    subtitle: 'Landing page institucional para unidad médica de alta especialidad',
+    year: '2026',
+    tech: ['React.js', 'Tailwind CSS', 'Vite', 'Framer Motion'],
+    description:
+      'Plataforma digital para la Unidad de Especialidades Ortopédicas y Traumatológicas Justo Sierra, con sede en Guadalajara, Jalisco. El sitio web presenta un equipo de cirujanos subespecialistas, certificaciones de excelencia, convenios con aseguradoras y un catálogo de soluciones quirúrgicas de alta especialidad. El diseño combina una paleta de colores limpia y profesional (blanco, azul oscuro, grises y acentos vibrantes) con una experiencia de usuario fluida, generando confianza y credibilidad en el paciente.',
+    challenge:
+      'El principal desafío fue traducir la autoridad y experiencia médica de un grupo de cirujanos ortopédicos en una experiencia digital que transmitiera confianza, seguridad y cercanía. La landing page debía comunicar credibilidad institucional (certificaciones, años de experiencia, número de procedimientos) a la vez que guiaba al usuario potencial hacia la acción de agendar una cita de forma clara y sencilla, manteniendo un diseño sobrio pero elegante.',
+    solution:
+      'Se optó por una arquitectura frontend con React y Tailwind CSS, priorizando una jerarquía visual impecable y una navegación intuitiva. La estructura se organizó en secciones modulares: hero con propuesta de valor, especialidades quirúrgicas, equipo médico, testimonios, certificaciones y contacto. Se utilizó una paleta de colores neutral y profesional (blanco, azules y grises) para reforzar la identidad institucional, con acentos que destacan las llamadas a la acción y generan un contraste visual elegante.',
+    results:
+      'La landing page ha mejorado la captación de pacientes para la unidad, facilitando la agenda de citas a través de WhatsApp y generando confianza mediante la presentación del equipo médico y los casos de éxito. Los médicos han destacado la claridad de la información y el diseño profesional, lo que ha incrementado las consultas y la percepción de calidad del servicio.',
+    stack: ['React.js', 'Tailwind CSS', 'Vite', 'Framer Motion', 'Responsive Design', 'Pixel Perfect Design'],
+    link: 'https://ortopediajustosierra.mx/',
+    highlights: [
+      '→ Diseño UI/UX profesional orientado a la conversión y confianza',
+      '→ Animaciones, efectos y transiciones avanzadas con Framer Motion',
+      '→ Responsive para desktop, tablet y móvil',
+      '→ Arquitectura frontend modular y escalable',
+      '→ Optimización de rendimiento y SEO',
+      '→ Integración con WhatsApp para agendamiento de citas'
+    ],
+    image: '/Images/projects/ortopediajustosierra-portada-project-by-advantechai.webp',
+    ogImage: 'https://www.advantechai.org/Images/projects/ortopediajustosierra-portada-project-by-advantechai.webp'
+  },
+
 ];

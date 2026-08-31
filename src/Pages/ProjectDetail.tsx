@@ -80,7 +80,7 @@ export default function ProjectDetail() {
 
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
 
-      <main className="pt-24 pb-16 px-4 md:px-8 max-w-5xl mx-auto">
+      <main className="pt-24 pb-16 px-4 md:px-8 max-w-6xl mx-auto">
         <button
           onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline underline-offset-4 mb-6"
@@ -93,7 +93,7 @@ export default function ProjectDetail() {
           <img
             src={imageUrl}
             alt={`Portada del proyecto ${project.title} - Advantech AI`}
-            className="w-full h-auto max-h-[600px] object-cover"
+            className="w-full h-auto max-h-[860px] object-cover p-8 rounded-[3rem]"
             loading="eager"
             width="1200"
             height="600"
@@ -126,13 +126,13 @@ export default function ProjectDetail() {
               <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
                 <CheckCircle className="w-5 h-5 text-accent" /> Descripción
               </h2>
-              <p className="text-primary-dark/70 leading-relaxed">{project.description}</p>
+              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.description}</p>
             </div>
             <div>
               <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
                 <TrendingUp className="w-5 h-5 text-accent" /> Desafío Técnico
               </h2>
-              <p className="text-primary-dark/70 leading-relaxed">{project.challenge}</p>
+              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.challenge}</p>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ export default function ProjectDetail() {
             <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
               <Code className="w-5 h-5 text-accent" /> Solución Implementada
             </h2>
-            <p className="text-primary-dark/70 leading-relaxed">{project.solution}</p>
+            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.solution}</p>
           </div>
 
           {/* Resultados (sin cambios) */}
@@ -149,7 +149,7 @@ export default function ProjectDetail() {
             <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
               <Users className="w-5 h-5 text-accent" /> Resultados
             </h2>
-            <p className="text-primary-dark/70 leading-relaxed">{project.results}</p>
+            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.results}</p>
           </div>
 
           {/* Stack Tecnológico (sin cambios) */}
@@ -159,7 +159,7 @@ export default function ProjectDetail() {
               {project.stack.map((item) => (
                 <span
                   key={item}
-                  className="bg-primary-dark/5 px-3 py-1.5 rounded-full text-sm text-primary-dark/70"
+                  className="bg-primary-dark/5 px-3 py-1.5 rounded-full text-md text-primary-dark/70"
                 >
                   {item}
                 </span>
@@ -174,7 +174,7 @@ export default function ProjectDetail() {
             </h2>
             <ul className="list-none space-y-1.5">
               {project.highlights.map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-primary-dark/70">
+                <li key={i} className="flex items-start gap-2 leading-[1.7] !text-[1.1rem] text-primary-dark/70">
                   <span className="text-accent">→</span> {h.replace('→ ', '')}
                 </li>
               ))}
