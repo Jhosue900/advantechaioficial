@@ -333,10 +333,10 @@ export default function WebApps() {
         <Helmet>
             <title>Software a Medida para Empresas | Desarrollamos tu Plataforma | Advantech AI</title>
             <meta name="description" content="Creamos aplicaciones web personalizadas para resolver los desafíos operativos de tu empresa. Software que se adapta a tu negocio, no al revés. Cotiza tu proyecto." />
-            <link rel="canonical" href="https://www.advantechai.org/AplicacionesWeb" />
+            <link rel="canonical" href="https://advantechai.org/AplicacionesWeb" />
             <meta property="og:title" content="Software a Medida para Empresas | Desarrollamos tu Plataforma | Advantech AI" />
             <meta property="og:description" content="Desarrollamos aplicaciones web personalizadas para resolver problemas reales de tu negocio. Software que se adapta a tu empresa." />
-            <meta property="og:url" content="https://www.advantechai.org/AplicacionesWeb" />
+            <meta property="og:url" content="https://advantechai.org/AplicacionesWeb" />
         </Helmet>
 
 

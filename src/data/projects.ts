@@ -41,7 +41,7 @@ export const projects: Project[] = [
       '→ Integración de una experiencia visual orientada a conversión'
     ],
     image: '/Images/projects/weprommx-portada-project-by-advantechai.webp',
-    ogImage: 'https://www.advantechai.org/Images/projects/weprommx-portada-project-by-advantechai.webp'
+    ogImage: 'https://advantechai.org/Images/projects/weprommx-portada-project-by-advantechai.webp'
   },
   // Aquí puedes agregar más proyectos en el futuro
 
@@ -70,7 +70,7 @@ export const projects: Project[] = [
       '→ Flujo de cotización automatizado'
     ],
     image: '/Images/projects/weprompromocionales-portada-project-by-advantechai.webp',
-    ogImage: 'https://www.advantechai.org/Images/projects/weprompromocionales-portada-project-by-advantechai.webp'
+    ogImage: 'https://advantechai.org/Images/projects/weprompromocionales-portada-project-by-advantechai.webp'
   },
 
   {
@@ -98,7 +98,7 @@ export const projects: Project[] = [
       '→ Integración con WhatsApp para agendamiento de citas'
     ],
     image: '/Images/projects/ortopediajustosierra-portada-project-by-advantechai.webp',
-    ogImage: 'https://www.advantechai.org/Images/projects/ortopediajustosierra-portada-project-by-advantechai.webp'
+    ogImage: 'https://advantechai.org/Images/projects/ortopediajustosierra-portada-project-by-advantechai.webp'
   },
 
 ];

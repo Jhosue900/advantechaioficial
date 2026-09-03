@@ -229,10 +229,10 @@ export default function Chatbots() {
         <Helmet>
             <title>Chatbots Inteligentes y Agendamiento en WhatsApp | Advantech AI</title>
             <meta name="description" content="Automatiza tus flujos de ventas y atención al cliente con agentes conversacionales conectados a modelos LLM avanzados, integrados con WhatsApp y tu sitio web." />
-            <link rel="canonical" href="https://www.advantechai.org/ChatbotsInteligentes" />
+            <link rel="canonical" href="https://advantechai.org/ChatbotsInteligentes" />
             <meta property="og:title" content="Chatbots Inteligentes y Agendamiento en WhatsApp | Advantech AI" />
             <meta property="og:description" content="Automatiza la atención al cliente y ventas con chatbots impulsados por IA, disponibles 24/7 en WhatsApp y web." />
-            <meta property="og:url" content="https://www.advantechai.org/ChatbotsInteligentes" />
+            <meta property="og:url" content="https://advantechai.org/ChatbotsInteligentes" />
         </Helmet>
 
         <div className="overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>

@@ -228,10 +228,10 @@ export default function AIAgent() {
         <Helmet>
           <title>Agentes de Inteligencia Artificial Autónomos | Advantech AI</title>
           <meta name="description" content="Diseñamos e implementamos agentes de IA avanzados que automatizan procesos complejos, integran sistemas y toman decisiones inteligentes en tiempo real para tu empresa." />
-          <link rel="canonical" href="https://www.advantechai.org/AgentesDeIA" />
+          <link rel="canonical" href="https://advantechai.org/AgentesDeIA" />
           <meta property="og:title" content="Agentes de Inteligencia Artificial Autónomos | Advantech AI" />
           <meta property="og:description" content="Automatiza la toma de decisiones, el análisis de datos y la ejecución de tareas con agentes de IA personalizados." />
-          <meta property="og:url" content="https://www.advantechai.org/AgentesDeIA" />
+          <meta property="og:url" content="https://advantechai.org/AgentesDeIA" />
         </Helmet>
 
         <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
@@ -243,10 +243,10 @@ export default function AIAgent() {
           <Helmet>
             <title>Agentes de Inteligencia Artificial Autónomos | Advantech AI</title>
             <meta name="description" content="Diseñamos e implementamos agentes de IA avanzados que automatizan procesos complejos, integran sistemas y toman decisiones inteligentes en tiempo real para tu empresa." />
-            <link rel="canonical" href="https://www.advantechai.org/AgentesDeIA" />
+            <link rel="canonical" href="https://advantechai.org/AgentesDeIA" />
             <meta property="og:title" content="Agentes de Inteligencia Artificial Autónomos | Advantech AI" />
             <meta property="og:description" content="Automatiza la toma de decisiones, el análisis de datos y la ejecución de tareas con agentes de IA personalizados." />
-            <meta property="og:url" content="https://www.advantechai.org/AgentesDeIA" />
+            <meta property="og:url" content="https://advantechai.org/AgentesDeIA" />
           </Helmet>
 
           {/* ─── HERO ─── */}

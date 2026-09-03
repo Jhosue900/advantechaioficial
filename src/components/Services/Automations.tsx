@@ -222,10 +222,10 @@ export default function Automations() {
         <Helmet>
             <title>Agencia de Automatización de Procesos con n8n | Advantech AI</title>
             <meta name="description" content="Expertos en n8n. Conectamos tus herramientas (CRMs, ERPs, APIs) para eliminar tareas repetitivas y optimizar flujos de trabajo con automatizaciones inteligentes." />
-            <link rel="canonical" href="https://www.advantechai.org/Automatizaciones" />
+            <link rel="canonical" href="https://advantechai.org/Automatizaciones" />
             <meta property="og:title" content="Agencia de Automatización de Procesos con n8n | Advantech AI" />
             <meta property="og:description" content="Automatiza tus flujos de trabajo con n8n, integra APIs, sincroniza datos y elimina tareas manuales repetitivas." />
-            <meta property="og:url" content="https://www.advantechai.org/Automatizaciones" />
+            <meta property="og:url" content="https://advantechai.org/Automatizaciones" />
         </Helmet>
 
         <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />

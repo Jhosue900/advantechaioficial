@@ -46,7 +46,7 @@ export default function ProjectDetail() {
     },
     "datePublished": project.year,
     "image": ogImage,
-    "url": `https://www.advantechai.org/projects/${project.id}`
+    "url": `https://advantechai.org/projects/${project.id}`
   };
 
   return (
@@ -54,7 +54,7 @@ export default function ProjectDetail() {
       <Helmet>
         <title>{project.title} | Advantech AI - Caso de éxito</title>
         <meta name="description" content={project.description} />
-        <link rel="canonical" href={`https://www.advantechai.org/projects/${project.id}`} />
+        <link rel="canonical" href={`https://advantechai.org/projects/${project.id}`} />
 
         {/* Open Graph */}
         <meta property="og:title" content={`${project.title} | Advantech AI`} />
@@ -62,7 +62,7 @@ export default function ProjectDetail() {
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:url" content={`https://www.advantechai.org/projects/${project.id}`} />
+        <meta property="og:url" content={`https://advantechai.org/projects/${project.id}`} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Advantech AI" />
 

@@ -50,13 +50,13 @@ function Home() {
           name="description"
           content="Agencia internacional de ingeniería de software. Maximizamos la eficiencia empresarial mediante integraciones con n8n, agentes de IA, chatbots avanzados y plataformas web a medida."
         />
-        <link rel="canonical" href="https://www.advantechai.org/" />
+        <link rel="canonical" href="https://advantechai.org/" />
         <meta property="og:title" content="Advantech AI | Automatización n8n e Ingeniería Web Premium" />
         <meta
           property="og:description"
           content="Maximizamos la eficiencia de tu negocio con agentes de IA y desarrollo full-stack escalable."
         />
-        <meta property="og:url" content="https://www.advantechai.org/" />
+        <meta property="og:url" content="https://advantechai.org/" />
       </Helmet>
 
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrolled={scrolled} />
