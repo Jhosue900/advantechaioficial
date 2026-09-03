@@ -377,10 +377,10 @@ export default function WebDevelopment() {
       <Helmet>
         <title>Sitios Web Profesionales para Empresas | Advantech AI</title>
         <meta name="description" content="Desarrollamos sitios web corporativos, institucionales y de comercio electrónico con foco en diseño, claridad y experiencia de usuario. Presencia digital profesional para empresas que toman en serio su imagen." />
-        <link rel="canonical" href="https://www.advantechai.org/DesarrolloWeb" />
+        <link rel="canonical" href="https://advantechai.org/DesarrolloWeb" />
         <meta property="og:title" content="Sitios Web Profesionales para Empresas | Advantech AI" />
         <meta property="og:description" content="Sitios web corporativos, institucionales y de comercio electrónico con diseño profesional y experiencia de usuario cuidada." />
-        <meta property="og:url" content="https://www.advantechai.org/DesarrolloWeb" />
+        <meta property="og:url" content="https://advantechai.org/DesarrolloWeb" />
       </Helmet>
 
       <div className="overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
