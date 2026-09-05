@@ -1,33 +1,34 @@
-import { Zap, TrendingUp, MessageSquare, Activity, ChevronRight } from 'lucide-react';
+import { Zap, TrendingUp, MessageSquare, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-const solutions = [
-  {
-    title: 'Plataforma de Automatización Empresarial',
-    description: 'Sistema integral que conecta todas tus herramientas y automatiza flujos de trabajo críticos.',
-    icon: <Zap className="w-6 h-6" />,
-  },
-  {
-    title: 'Sistema de Inteligencia de Negocios',
-    description: 'Dashboards en tiempo real para decisiones basadas en datos.',
-    icon: <TrendingUp className="w-6 h-6" />,
-  },
-  {
-    title: 'Plataforma de Atención al Cliente con IA',
-    description: 'Asistentes virtuales inteligentes que mejoran la experiencia del cliente 24/7.',
-    icon: <MessageSquare className="w-6 h-6" />,
-  },
-];
-
-function StatCard({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center">
-      <div className="text-3xl md:text-4xl font-bold text-highlight mb-2">{number}</div>
-      <div className="text-sm text-white/60">{label}</div>
-    </div>
-  );
-}
+type Solution = {
+  icon: JSX.Element;
+  titleKey: string;
+  descriptionKey: string;
+};
 
 export default function SolutionsSection() {
+  const { t } = useTranslation();
+
+  // 👇 Array de soluciones con claves de traducción
+  const solutions: Solution[] = [
+    {
+      icon: <Zap className="w-6 h-6" />,
+      titleKey: 'solutions.list.enterprise_automation.title',
+      descriptionKey: 'solutions.list.enterprise_automation.description',
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      titleKey: 'solutions.list.business_intelligence.title',
+      descriptionKey: 'solutions.list.business_intelligence.description',
+    },
+    {
+      icon: <MessageSquare className="w-6 h-6" />,
+      titleKey: 'solutions.list.ai_customer_service.title',
+      descriptionKey: 'solutions.list.ai_customer_service.description',
+    },
+  ];
+
   return (
     <section id="soluciones" className="py-24 lg:py-32 bg-primary-dark relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh-dark" />
@@ -36,18 +37,15 @@ export default function SolutionsSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           <div>
             <p className="text-sm font-semibold text-highlight uppercase tracking-wider mb-4 animate-on-scroll">
-              Soluciones
+              {t('solutions.label')}
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6 animate-on-scroll">
-              Tecnología que genera{' '}
-              <span className="text-highlight">resultados competitivos.</span>
+              {t('solutions.title')}
             </h2>
             <p className="text-lg text-white/60 leading-relaxed animate-on-scroll">
-              Cada solución está diseñada para resolver problemas específicos de tu industria. No vendemos cualquier software, construimos software que te posiciona ante la competencia.
+              {t('solutions.subtitle')}
             </p>
           </div>
-
-         
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
@@ -60,17 +58,19 @@ export default function SolutionsSection() {
               <div className="w-12 h-12 rounded-xl bg-highlight/20 flex items-center justify-center text-highlight mb-5 transition-colors duration-300 group-hover:bg-highlight group-hover:text-primary-dark">
                 {solution.icon}
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{solution.title}</h3>
-              <p className="text-white/60 mb-5 leading-relaxed">{solution.description}</p>
-              <div className="flex items-center gap-2 text-highlight font-medium">
-              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                {t(solution.titleKey)}
+              </h3>
+              <p className="text-white/60 mb-5 leading-relaxed">
+                {t(solution.descriptionKey)}
+              </p>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12 animate-on-scroll">
           <a href="#contacto" className="inline-flex items-center gap-2 text-highlight font-medium hover:text-white transition-colors duration-300">
-            Descubre cómo podemos ayudarte
+            {t('solutions.cta')}
             <ChevronRight className="w-5 h-5" />
           </a>
         </div>

@@ -1,29 +1,32 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
-import { Logo } from './Navbar';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-primary-dark py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-2">
+            
             <p className="text-white/60 mt-4 max-w-md leading-relaxed">
-              Transformamos procesos complejos en sistemas inteligentes. Software empresarial, automatización e inteligencia artificial para empresas que quieren crecer.
+              {t('footer.description')}
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Enlaces</h4>
+            <h4 className="text-white font-semibold mb-4">{t('footer.quick_links')}</h4>
             <ul className="space-y-3">
-              <li><a href="#servicios" className="text-white/60 hover:text-white transition-colors">Servicios</a></li>
-              <li><a href="#soluciones" className="text-white/60 hover:text-white transition-colors">Soluciones</a></li>
-              <li><a href="#proceso" className="text-white/60 hover:text-white transition-colors">Proceso</a></li>
-              <li><a href="#nosotros" className="text-white/60 hover:text-white transition-colors">Nosotros</a></li>
+              <li><a href="#servicios" className="text-white/60 hover:text-white transition-colors">{t('footer.services')}</a></li>
+              <li><a href="#soluciones" className="text-white/60 hover:text-white transition-colors">{t('nav.solutions')}</a></li>
+              <li><a href="#proceso" className="text-white/60 hover:text-white transition-colors">{t('nav.process')}</a></li>
+              <li><a href="#nosotros" className="text-white/60 hover:text-white transition-colors">{t('nav.about')}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Contacto</h4>
+            <h4 className="text-white font-semibold mb-4">{t('footer.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/60">
                 <Mail className="w-4 h-4" />
@@ -43,7 +46,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm">
-            {new Date().getFullYear()} Advantech AI. Todos los derechos reservados.
+            {new Date().getFullYear()} Advantech AI. {t('footer.rights')}
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-white/40 hover:text-white transition-colors">Aviso de Privacidad</a>

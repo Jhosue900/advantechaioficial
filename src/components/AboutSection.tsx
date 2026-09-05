@@ -1,6 +1,9 @@
 import { Users, Building2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function AboutSection() {
+  const { t } = useTranslation();
+
   return (
     <section id="nosotros" className="py-24 lg:py-32 bg-gray-50/50 relative">
       <div className="absolute inset-0 dot-pattern opacity-20" />
@@ -9,17 +12,16 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="animate-on-scroll">
             <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-              Sobre Nosotros
+              {t('about.label')}
             </p>
             <h2 className="section-title mb-6">
-              Una década construyendo{' '}
-              <span className="text-accent">tecnología que importa</span>
+              {t('about.title')}
             </h2>
             <p className="text-lg text-primary-dark/60 leading-relaxed mb-6">
-              Somos un equipo de ingenieros, arquitectos de software y consultores con pasión por resolver problemas complejos. Nuestra misión es democratizar el acceso a tecnología de clase mundial para empresas latinoamericanas.
+              {t('about.description_1')}
             </p>
             <p className="text-lg text-primary-dark/60 leading-relaxed mb-8">
-              Creemos en relaciones a largo plazo, no en proyectos. Eso significa que nos comprometemos con el éxito continuo de nuestros clientes, más allá de la primera entrega.
+              {t('about.description_2')}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -28,8 +30,8 @@ export default function AboutSection() {
                   <Users className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary-dark">Equipo Senior</h4>
-                  <p className="text-sm text-primary-dark/60">Ingenieros con experiencia en empresas Fortune 500</p>
+                  <h4 className="font-semibold text-primary-dark">{t('about.team')}</h4>
+                  <p className="text-sm text-primary-dark/60">{t('about.team_desc')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -37,8 +39,8 @@ export default function AboutSection() {
                   <Building2 className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary-dark">Enfoque Empresarial</h4>
-                  <p className="text-sm text-primary-dark/60">Diseñado para escala, seguridad y rendimiento</p>
+                  <h4 className="font-semibold text-primary-dark">{t('about.focus')}</h4>
+                  <p className="text-sm text-primary-dark/60">{t('about.focus_desc')}</p>
                 </div>
               </div>
             </div>

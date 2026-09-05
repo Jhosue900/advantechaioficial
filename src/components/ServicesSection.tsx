@@ -1,61 +1,57 @@
-import { Code2, Target, Globe, Bot, Brain, Workflow, Database, Shield, Map, Check, ArrowRight, LucideIcon } from 'lucide-react';
+import { Code2, Target, Globe, Bot, Brain, Workflow, ArrowRight, LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 type Service = {
   Icon: LucideIcon;
-  title: string;
-  description: string;
+  titleKey: string;      // 👈 Cambiamos a clave de traducción
+  descriptionKey: string; // 👈 Cambiamos a clave de traducción
   link: string;
 };
 
-const services: Service[] = [
-  {
-    Icon: Target,
-    title: 'Landing Pages',
-    description:
-      'Diseñamos páginas optimizadas para captar leads, aumentar conversiones y maximizar el rendimiento de tus campañas.',
-    link: 'LandingPages'
-  },
-  {
-    Icon: Globe,
-    title: 'Desarrollo Web',
-    description:
-      'Creamos sitios web modernos, rápidos y profesionales que fortalecen tu presencia digital y generan confianza.',
-    link: 'DesarrolloWeb'
-  },
-  {
-    Icon: Code2,
-    title: 'Aplicaciones Web',
-    description:
-      'Desarrollamos plataformas y sistemas personalizados que optimizan procesos, centralizan información y mejoran la productividad.',
-    link: 'AplicacionesWeb'
-  },
-  {
-    Icon: Workflow,
-    title: 'Automatizaciones',
-    description:
-      'Automatizamos tareas repetitivas y conectamos tus herramientas para ahorrar tiempo, reducir margen de error y mejorar la eficiencia.',
-    link: 'Automatizaciones'
-  },
-  {
-    Icon: Bot,
-    title: 'Chatbots Inteligentes',
-    description:
-      'Automatiza la atención al cliente, responde consultas al instante y captura oportunidades las 24 horas del día.',
-    link: 'ChatbotsInteligentes'
-  },
-  {
-    Icon: Brain,
-    title: 'Agentes de IA',
-    description:
-      'Implementamos agentes inteligentes capaces de analizar información, ejecutar tareas y optimizar procesos de forma autónoma.',
-    link: 'AgentesDeIA'
-  },
-];
-
 export default function ServicesSection() {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  // 👇 Array de servicios con claves de traducción
+  const services: Service[] = [
+    {
+      Icon: Target,
+      titleKey: 'services.list.landing_pages.title',
+      descriptionKey: 'services.list.landing_pages.description',
+      link: 'LandingPages'
+    },
+    {
+      Icon: Globe,
+      titleKey: 'services.list.web_development.title',
+      descriptionKey: 'services.list.web_development.description',
+      link: 'DesarrolloWeb'
+    },
+    {
+      Icon: Code2,
+      titleKey: 'services.list.web_apps.title',
+      descriptionKey: 'services.list.web_apps.description',
+      link: 'AplicacionesWeb'
+    },
+    {
+      Icon: Workflow,
+      titleKey: 'services.list.automations.title',
+      descriptionKey: 'services.list.automations.description',
+      link: 'Automatizaciones'
+    },
+    {
+      Icon: Bot,
+      titleKey: 'services.list.chatbots.title',
+      descriptionKey: 'services.list.chatbots.description',
+      link: 'ChatbotsInteligentes'
+    },
+    {
+      Icon: Brain,
+      titleKey: 'services.list.ai_agents.title',
+      descriptionKey: 'services.list.ai_agents.description',
+      link: 'AgentesDeIA'
+    },
+  ];
 
   return (
     <section id="servicios" className="py-24 lg:py-32 relative">
@@ -65,21 +61,19 @@ export default function ServicesSection() {
         {/* Header */}
         <div className="text-center mb-16 lg:mb-20">
           <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-4 animate-on-scroll">
-            Nuestros Servicios
+            {t('services.label')}
           </p>
           <h2 className="section-title mb-6 animate-on-scroll">
-            Tecnología que impulsa el{' '}
-            <span className="text-accent">crecimiento de tu negocio</span>
+            {t('services.title')}
           </h2>
           <p className="section-subtitle mx-auto animate-on-scroll">
-            Desarrollamos soluciones digitales que optimizan procesos, fortalecen tu
-            presencia online y ayudan a tu negocio a crecer de forma limpia y ordenada.
+            {t('services.subtitle')}
           </p>
         </div>
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map(({ Icon, title, description, link }, index) => (
+          {services.map(({ Icon, titleKey, descriptionKey, link }, index) => (
             <div
               key={index}
               className="relative group animate-on-scroll rounded-2xl border border-border/40 bg-background p-6 flex flex-col
@@ -97,30 +91,26 @@ export default function ServicesSection() {
                 <Icon className="w-5 h-5" />
               </div>
 
-              {/* Title */}
+              {/* Title – usando t() con la clave */}
               <h3 className="text-base font-semibold text-primary-dark mb-2">
-                {title}
+                {t(titleKey)}
               </h3>
 
-              {/* Description */}
+              {/* Description – usando t() con la clave */}
               <p className="text-sm text-primary-dark/60 leading-relaxed mb-5">
-                {description}
+                {t(descriptionKey)}
               </p>
-
-              
 
               {/* CTA — siempre al fondo */}
               <div className="pt-5 mt-auto">
                 <a
-                  onClick={() =>  {
-                    navigate(link)
-                  }}
+                  onClick={() => navigate(link)}
                   className="inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium
                              bg-accent/10 text-accent rounded-lg px-4 py-2.5
                              hover:bg-accent/20 transition-colors duration-150"
                 >
                   <ArrowRight className="w-3.5 h-3.5" />
-                  Saber más
+                  {t('services.learn_more')}
                 </a>
               </div>
             </div>

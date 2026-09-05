@@ -1,12 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle, ExternalLink, Code, Users, TrendingUp, Calendar, Layers } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import { projects } from '../data/projects';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useState, useEffect } from 'react';
 
 export default function ProjectDetail() {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === id);
@@ -30,16 +33,22 @@ export default function ProjectDetail() {
     );
   }
 
-  // 👇 Construir la URL de la imagen
+  // Obtener el idioma actual
+  const currentLang = i18n.language || 'es';
+
+  // Función auxiliar para obtener el texto en el idioma correcto
+  const getText = (textObj: { es: string; en: string }) => {
+    return textObj[currentLang as keyof typeof textObj] || textObj.es;
+  };
+
   const imageUrl = project.image;
   const ogImage = project.ogImage || imageUrl;
 
-  // 👇 Datos estructurados (JSON-LD) para SEO
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": project.title,
-    "description": project.description,
+    "name": getText(project.title),
+    "description": getText(project.description),
     "author": {
       "@type": "Organization",
       "name": "Advantech AI"
@@ -52,13 +61,12 @@ export default function ProjectDetail() {
   return (
     <>
       <Helmet>
-        <title>{project.title} | Advantech AI - Caso de éxito</title>
-        <meta name="description" content={project.description} />
+        <title>{getText(project.title)} | Advantech AI - Caso de éxito</title>
+        <meta name="description" content={getText(project.description)} />
         <link rel="canonical" href={`https://advantechai.org/projects/${project.id}`} />
 
-        {/* Open Graph */}
-        <meta property="og:title" content={`${project.title} | Advantech AI`} />
-        <meta property="og:description" content={project.description} />
+        <meta property="og:title" content={`${getText(project.title)} | Advantech AI`} />
+        <meta property="og:description" content={getText(project.description)} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -66,13 +74,11 @@ export default function ProjectDetail() {
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Advantech AI" />
 
-        {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${project.title} | Advantech AI`} />
-        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:title" content={`${getText(project.title)} | Advantech AI`} />
+        <meta name="twitter:description" content={getText(project.description)} />
         <meta name="twitter:image" content={ogImage} />
 
-        {/* JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
@@ -85,14 +91,13 @@ export default function ProjectDetail() {
           onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline underline-offset-4 mb-6"
         >
-          <ArrowLeft className="w-4 h-4" /> Volver
+          <ArrowLeft className="w-4 h-4" /> {t('project_detail.back')}
         </button>
 
-        {/* 👇 IMAGEN GRANDE (cabecera) */}
         <div className="mb-8 rounded-2xl overflow-hidden shadow-premium">
           <img
             src={imageUrl}
-            alt={`Portada del proyecto ${project.title} - Advantech AI`}
+            alt={`Portada del proyecto ${getText(project.title)} - Advantech AI`}
             className="w-full h-auto max-h-[860px] object-cover p-8 rounded-[3rem]"
             loading="eager"
             width="1200"
@@ -101,7 +106,6 @@ export default function ProjectDetail() {
         </div>
 
         <div className="space-y-8">
-          {/* Encabezado (con icono de año) */}
           <div>
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full">
@@ -116,45 +120,41 @@ export default function ProjectDetail() {
                 </span>
               ))}
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-primary-dark">{project.title}</h1>
-            <p className="text-lg text-primary-dark/60 mt-4">{project.subtitle}</p>
+            <h1 className="text-3xl md:text-5xl font-bold text-primary-dark">{getText(project.title)}</h1>
+            <p className="text-lg text-primary-dark/60 mt-4">{getText(project.subtitle)}</p>
           </div>
 
-          {/* Descripción y Desafío (sin cambios) */}
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
-                <CheckCircle className="w-5 h-5 text-accent" /> Descripción
+                <CheckCircle className="w-5 h-5 text-accent" /> {t('project_detail.description')}
               </h2>
-              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.description}</p>
+              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{getText(project.description)}</p>
             </div>
             <div>
               <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
-                <TrendingUp className="w-5 h-5 text-accent" /> Desafío Técnico
+                <TrendingUp className="w-5 h-5 text-accent" /> {t('project_detail.challenge')}
               </h2>
-              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.challenge}</p>
+              <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{getText(project.challenge)}</p>
             </div>
           </div>
 
-          {/* Solución (sin cambios) */}
           <div>
             <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
-              <Code className="w-5 h-5 text-accent" /> Solución Implementada
+              <Code className="w-5 h-5 text-accent" /> {t('project_detail.solution')}
             </h2>
-            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.solution}</p>
+            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{getText(project.solution)}</p>
           </div>
 
-          {/* Resultados (sin cambios) */}
           <div>
             <h2 className="text-xl font-semibold text-primary-dark flex items-center gap-2 mb-3">
-              <Users className="w-5 h-5 text-accent" /> Resultados
+              <Users className="w-5 h-5 text-accent" /> {t('project_detail.results')}
             </h2>
-            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{project.results}</p>
+            <p className="text-primary-dark/70 leading-[2.1] !text-[1.1rem]">{getText(project.results)}</p>
           </div>
 
-          {/* Stack Tecnológico (sin cambios) */}
           <div>
-            <h2 className="text-xl font-semibold text-primary-dark mb-3">Stack Tecnológico</h2>
+            <h2 className="text-xl font-semibold text-primary-dark mb-3">{t('project_detail.stack')}</h2>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((item) => (
                 <span
@@ -167,13 +167,12 @@ export default function ProjectDetail() {
             </div>
           </div>
 
-          {/* Aspectos destacados (sin cambios) */}
           <div>
             <h2 className="text-xl font-semibold text-primary-dark mb-3">
-              Aspectos técnicos destacados
+              {t('project_detail.highlights')}
             </h2>
             <ul className="list-none space-y-1.5">
-              {project.highlights.map((h, i) => (
+              {getText(project.highlights).map((h, i) => (
                 <li key={i} className="flex items-start gap-2 leading-[1.7] !text-[1.1rem] text-primary-dark/70">
                   <span className="text-accent">→</span> {h.replace('→ ', '')}
                 </li>
@@ -181,7 +180,6 @@ export default function ProjectDetail() {
             </ul>
           </div>
 
-          {/* Enlace al sitio web (sin cambios) */}
           {project.link && (
             <a
               href={project.link}
@@ -189,7 +187,7 @@ export default function ProjectDetail() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent/90 transition-colors"
             >
-              Visitar sitio web <ExternalLink className="w-4 h-4" />
+              {t('project_detail.visit')} <ExternalLink className="w-4 h-4" />
             </a>
           )}
         </div>

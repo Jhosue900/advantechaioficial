@@ -6,7 +6,7 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import SolutionsSection from '../components/SolutionsSection';
 import ProcessSection from '../components/ProcessSection';
-import ProjectsCarousel from '../components/ProjectsCarousel'; // 👈 Importar
+import ProjectsCarousel from '../components/ProjectsCarousel';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 
@@ -64,7 +64,7 @@ function Home() {
       <ServicesSection />
       <SolutionsSection />
       <ProcessSection />
-      <ProjectsCarousel />  {/* 👈 Agregar esta línea */}
+      <ProjectsCarousel />
       <CTASection />
       <Footer />
     </div>

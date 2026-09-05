@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
+import { useTranslation } from 'react-i18next';
+
 function HeroVisual() {
   const [m1, setM1] = useState(0);
   const [m2, setM2] = useState(0);
@@ -208,6 +210,9 @@ export default function HeroSection({
 }: {
   heroRef: React.RefObject<HTMLDivElement>;
 }) {
+
+  const { t } = useTranslation();
+
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
@@ -223,28 +228,15 @@ export default function HeroSection({
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight text-balance animate-slide-up"
+              className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold !leading-[1.2] tracking-tight text-balance animate-slide-up"
               style={{ fontFamily: "'Inter Tight', sans-serif" }}
             >
-              Ten presencia {" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-accent">
-                  digital
-                </span>
-              </span>
-              {" "}y sistemas que{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-accent">
-                  automatizan tu negocio.
-                </span>
-                <UnderlineSvg />
-              </span>
+              
+              {t('hero.title')}
             </h1>
 
             <p className="text-lg md:text-xl text-primary-dark/60 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-slide-up stagger-1">
-              Transformamos tu negocio con tecnología, automatización y
-              presencia digital para que ganes más, gastes menos y operes
-              mejor con soluciones eficientes, flexibles y personalizadas.
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-up stagger-2">
@@ -252,14 +244,14 @@ export default function HeroSection({
                 href="#contacto"
                 className="btn-primary text-lg px-8 py-4 w-full sm:w-auto"
               >
-                Agenda una reunión
+                {t('hero.cta_primary')}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </a>
               <a
                 href="#soluciones"
                 className="btn-secondary text-lg px-8 py-4 w-full sm:w-auto"
               >
-                Ver soluciones
+                {t('hero.cta_secondary')}
               </a>
             </div>
           </div>

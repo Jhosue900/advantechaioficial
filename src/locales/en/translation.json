@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "services": "Services",
+    "solutions": "Solutions",
+    "process": "Process",
+    "about": "About",
+    "contact": "Book a Meeting",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Have a digital presence and systems that automate your business.",
+    "subtitle": "We transform your business with technology, automation and digital presence so you earn more, spend less and operate better with efficient, flexible and customized solutions.",
+    "cta_primary": "Book a Meeting",
+    "cta_secondary": "View Solutions"
+  },
+
+  "services": {
+    "label": "Our Services",
+    "title": "Technology that drives your business growth",
+    "subtitle": "We develop digital solutions that optimize processes, strengthen your online presence and help your business grow in a clean and organized way.",
+    "learn_more": "Learn More",
+
+    "list": {
+      "landing_pages": {
+        "title": "Landing Pages",
+        "description": "We design optimized pages to capture leads, increase conversions and maximize the performance of your campaigns."
+      },
+      "web_development": {
+        "title": "Web Development",
+        "description": "We create modern, fast and professional websites that strengthen your digital presence and build trust."
+      },
+      "web_apps": {
+        "title": "Web Applications",
+        "description": "We develop custom platforms and systems that optimize processes, centralize information and improve productivity."
+      },
+      "automations": {
+        "title": "Automations",
+        "description": "We automate repetitive tasks and connect your tools to save time, reduce errors and improve efficiency."
+      },
+      "chatbots": {
+        "title": "Intelligent Chatbots",
+        "description": "Automate customer service, answer queries instantly and capture opportunities 24/7."
+      },
+      "ai_agents": {
+        "title": "AI Agents",
+        "description": "We implement intelligent agents capable of analyzing information, executing tasks and autonomously optimizing processes."
+      }
+    }
+
+  },
+  "solutions": {
+    "label": "Solutions",
+    "title": "Technology that delivers competitive results.",
+    "subtitle": "Every solution is designed to solve specific problems in your industry. We don't sell any software, we build software that positions you ahead of the competition.",
+    "cta": "Discover how we can help you",
+
+    "list": {
+      "enterprise_automation": {
+        "title": "Enterprise Automation Platform",
+        "description": "Comprehensive system that connects all your tools and automates critical workflows."
+      },
+      "business_intelligence": {
+        "title": "Business Intelligence System",
+        "description": "Real-time dashboards for data-driven decisions."
+      },
+      "ai_customer_service": {
+        "title": "AI-Powered Customer Service Platform",
+        "description": "Intelligent virtual assistants that improve customer experience 24/7."
+      }
+    }
+
+  },
+  "process": {
+    "label": "Our Process",
+    "title": "A proven process, predictable results",
+    "subtitle": "Structured methodology that minimizes risks and maximizes value delivered at every stage.",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We analyze your current processes and identify opportunities for improvement and automation."
+      },
+      "design": {
+        "title": "Design",
+        "description": "We create the technical architecture and implementation roadmap aligned with your goals."
+      },
+      "development": {
+        "title": "Development",
+        "description": "We build your solution with agile methodologies and incremental deliveries."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "We deploy with data migration, training and ongoing support."
+      }
+    }
+  },
+  "about": {
+    "label": "About Us",
+    "title": "A decade building technology that matters",
+    "description_1": "We are a team of engineers, software architects and consultants passionate about solving complex problems. Our mission is to democratize access to world-class technology for Latin American companies.",
+    "description_2": "We believe in long-term relationships, not projects. That means we are committed to the continued success of our clients, beyond the first delivery.",
+    "team": "Senior Team",
+    "team_desc": "Engineers with experience in Fortune 500 companies",
+    "focus": "Enterprise Focus",
+    "focus_desc": "Designed for scale, security and performance"
+  },
+  "projects": {
+    "label": "Success Stories",
+    "title": "Projects that speak for themselves",
+    "subtitle": "See how we have transformed our clients' technical challenges into high-impact digital solutions.",
+    "view": "View Case Study"
+  },
+  "cta": {
+    "title": "Ready to transform your operation?",
+    "subtitle": "Book a free consultation with us. We'll analyze your situation and propose a clear path to automation.",
+    "feature_1": "No-commitment initial consultation",
+    "feature_2": "Automation opportunity analysis",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Your name",
+      "email": "Email address",
+      "email_placeholder": "email@company.com",
+      "company": "Company",
+      "company_placeholder": "Your company name",
+      "message": "How can we help you?",
+      "message_placeholder": "Tell us about your project or challenge...",
+      "submit": "Book Your Free Consultation"
+    }
+  },
+  "footer": {
+    "description": "We develop software, automation and artificial intelligence that help companies grow faster, operate more efficiently and scale without limits.",
+    "quick_links": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "rights": "All rights reserved"
+  },
+  "project_detail": {
+    "back": "Back",
+    "description": "Description",
+    "challenge": "Technical Challenge",
+    "solution": "Implemented Solution",
+    "results": "Results",
+    "stack": "Tech Stack",
+    "highlights": "Key Technical Aspects",
+    "visit": "Visit Website"
+  }
+}

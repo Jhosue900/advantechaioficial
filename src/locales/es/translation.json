@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "solutions": "Soluciones",
+    "process": "Proceso",
+    "about": "Nosotros",
+    "contact": "Agenda una reunión",
+    "menu": "Menú"
+  },
+  "hero": {
+    "title": "Ten presencia digital y sistemas que automatizan tu negocio.",
+    "subtitle": "Transformamos tu negocio con tecnología, automatización y presencia digital para que ganes más, gastes menos y operes mejor con soluciones eficientes, flexibles y personalizadas.",
+    "cta_primary": "Agenda una reunión",
+    "cta_secondary": "Ver soluciones"
+  },
+  "services": {
+
+    "label": "Nuestros Servicios",
+    "title": "Tecnología que impulsa el crecimiento de tu negocio",
+    "subtitle": "Desarrollamos soluciones digitales que optimizan procesos, fortalecen tu presencia online y ayudan a tu negocio a crecer de forma limpia y ordenada.",
+    "learn_more": "Saber más",
+
+    "list": {
+      "landing_pages": {
+        "title": "Landing Pages",
+        "description": "Diseñamos páginas optimizadas para captar leads, aumentar conversiones y maximizar el rendimiento de tus campañas."
+      },
+      "web_development": {
+        "title": "Desarrollo Web",
+        "description": "Creamos sitios web modernos, rápidos y profesionales que fortalecen tu presencia digital y generan confianza."
+      },
+      "web_apps": {
+        "title": "Aplicaciones Web",
+        "description": "Desarrollamos plataformas y sistemas personalizados que optimizan procesos, centralizan información y mejoran la productividad."
+      },
+      "automations": {
+        "title": "Automatizaciones",
+        "description": "Automatizamos tareas repetitivas y conectamos tus herramientas para ahorrar tiempo, reducir margen de error y mejorar la eficiencia."
+      },
+      "chatbots": {
+        "title": "Chatbots Inteligentes",
+        "description": "Automatiza la atención al cliente, responde consultas al instante y captura oportunidades las 24 horas del día."
+      },
+      "ai_agents": {
+        "title": "Agentes de IA",
+        "description": "Implementamos agentes inteligentes capaces de analizar información, ejecutar tareas y optimizar procesos de forma autónoma."
+      }
+    }
+  },
+
+  
+  "solutions": {
+    "label": "Soluciones",
+    "title": "Tecnología que genera resultados competitivos.",
+    "subtitle": "Cada solución está diseñada para resolver problemas específicos de tu industria. No vendemos cualquier software, construimos software que te posiciona ante la competencia.",
+    "cta": "Descubre cómo podemos ayudarte",
+
+    "list": {
+      "enterprise_automation": {
+        "title": "Plataforma de Automatización Empresarial",
+        "description": "Sistema integral que conecta todas tus herramientas y automatiza flujos de trabajo críticos."
+      },
+      "business_intelligence": {
+        "title": "Sistema de Inteligencia de Negocios",
+        "description": "Dashboards en tiempo real para decisiones basadas en datos."
+      },
+      "ai_customer_service": {
+        "title": "Plataforma de Atención al Cliente con IA",
+        "description": "Asistentes virtuales inteligentes que mejoran la experiencia del cliente 24/7."
+      }
+    }
+
+  },
+
+
+
+  "process": {
+    "label": "Nuestro Proceso",
+    "title": "Un proceso probado, resultados previsibles",
+    "subtitle": "Metodología estructurada que minimiza riesgos y maximiza el valor entregado en cada fase.",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento",
+        "description": "Analizamos tus procesos actuales e identificamos oportunidades de mejora y automatización."
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Creamos la arquitectura técnica y el roadmap de implementación alineado con tus objetivos."
+      },
+      "development": {
+        "title": "Desarrollo",
+        "description": "Construimos tu solución con metodologías ágiles y entregas incrementales."
+      },
+      "implementation": {
+        "title": "Implementación",
+        "description": "Desplegamos con migración de datos, capacitación y soporte continuo."
+      }
+    }
+  },
+  "about": {
+    "label": "Sobre Nosotros",
+    "title": "Una década construyendo tecnología que importa",
+    "description_1": "Somos un equipo de ingenieros, arquitectos de software y consultores con pasión por resolver problemas complejos. Nuestra misión es democratizar el acceso a tecnología de clase mundial para empresas latinoamericanas.",
+    "description_2": "Creemos en relaciones a largo plazo, no en proyectos. Eso significa que nos comprometemos con el éxito continuo de nuestros clientes, más allá de la primera entrega.",
+    "team": "Equipo Senior",
+    "team_desc": "Ingenieros con experiencia en empresas Fortune 500",
+    "focus": "Enfoque Empresarial",
+    "focus_desc": "Diseñado para escala, seguridad y rendimiento"
+  },
+  "projects": {
+    "label": "Casos de éxito",
+    "title": "Proyectos que hablan por sí solos",
+    "subtitle": "Conoce cómo hemos transformado los desafíos técnicos de nuestros clientes en soluciones digitales de alto impacto.",
+    "view": "Ver caso de éxito"
+  },
+  "cta": {
+    "title": "¿Listo para transformar tu operación?",
+    "subtitle": "Agenda una consulta gratuita con nosotros. Analizaremos tu situación y propondremos un camino claro hacia la automatización.",
+    "feature_1": "Consulta inicial sin compromiso",
+    "feature_2": "Análisis de oportunidades de automatización",
+    "form": {
+      "name": "Nombre completo",
+      "name_placeholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "email_placeholder": "correo@empresa.com",
+      "company": "Empresa",
+      "company_placeholder": "Nombre de tu empresa",
+      "message": "¿Cómo podemos ayudarte?",
+      "message_placeholder": "Cuéntanos sobre tu proyecto o desafío...",
+      "submit": "Agenda tu Consulta Gratuita"
+    }
+  },
+  "footer": {
+    "description": "Desarrollamos software, automatizaciones e inteligencia artificial que ayudan a las empresas a crecer más rápido, operar con mayor eficiencia y escalar sin límites.",
+    "quick_links": "Enlaces rápidos",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados"
+  },
+  "project_detail": {
+    "back": "Volver",
+    "description": "Descripción",
+    "challenge": "Desafío Técnico",
+    "solution": "Solución Implementada",
+    "results": "Resultados",
+    "stack": "Stack Tecnológico",
+    "highlights": "Aspectos técnicos destacados",
+    "visit": "Visitar sitio web"
+  }
+}

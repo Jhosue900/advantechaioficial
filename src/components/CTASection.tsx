@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function ContactForm() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -23,7 +25,7 @@ function ContactForm() {
 
       if (response.ok) {
         alert('✅ ¡Gracias por tu interés! Nos pondremos en contacto pronto.');
-        setFormData({ nombre: '', email: '', empresa: '', mensaje: '' }); // Limpia el formulario
+        setFormData({ nombre: '', email: '', empresa: '', mensaje: '' });
       } else {
         alert('❌ Ocurrió un error. Por favor, intenta de nuevo más tarde.');
       }
@@ -38,7 +40,7 @@ function ContactForm() {
       <div className="space-y-5">
         <div>
           <label htmlFor="nombre" className="block text-sm font-medium text-white/80 mb-2">
-            Nombre completo
+            {t('cta.form.name')}
           </label>
           <input
             type="text"
@@ -46,14 +48,14 @@ function ContactForm() {
             value={formData.nombre}
             onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
             className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:border-transparent transition-all"
-            placeholder="Tu nombre"
+            placeholder={t('cta.form.name_placeholder')}
             required
           />
         </div>
 
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
-            Correo electrónico
+            {t('cta.form.email')}
           </label>
           <input
             type="email"
@@ -61,14 +63,14 @@ function ContactForm() {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:border-transparent transition-all"
-            placeholder="correo@empresa.com"
+            placeholder={t('cta.form.email_placeholder')}
             required
           />
         </div>
 
         <div>
           <label htmlFor="empresa" className="block text-sm font-medium text-white/80 mb-2">
-            Empresa
+            {t('cta.form.company')}
           </label>
           <input
             type="text"
@@ -76,13 +78,13 @@ function ContactForm() {
             value={formData.empresa}
             onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
             className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:border-transparent transition-all"
-            placeholder="Nombre de tu empresa"
+            placeholder={t('cta.form.company_placeholder')}
           />
         </div>
 
         <div>
           <label htmlFor="mensaje" className="block text-sm font-medium text-white/80 mb-2">
-            ¿Cómo podemos ayudarte?
+            {t('cta.form.message')}
           </label>
           <textarea
             id="mensaje"
@@ -90,7 +92,7 @@ function ContactForm() {
             value={formData.mensaje}
             onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
             className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:border-transparent transition-all resize-none"
-            placeholder="Cuéntanos sobre tu proyecto o desafío..."
+            placeholder={t('cta.form.message_placeholder')}
           />
         </div>
 
@@ -98,7 +100,7 @@ function ContactForm() {
           type="submit"
           className="w-full py-4 rounded-lg bg-highlight text-primary-dark font-semibold transition-all duration-300 hover:bg-white hover:shadow-glow active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-highlight/50 focus:ring-offset-2 focus:ring-offset-primary-dark"
         >
-          Agenda tu Consulta Gratuita
+          {t('cta.form.submit')}
         </button>
       </div>
     </form>
@@ -106,6 +108,8 @@ function ContactForm() {
 }
 
 export default function CTASection() {
+  const { t } = useTranslation();
+
   return (
     <section id="contacto" className="py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh" />
@@ -120,20 +124,19 @@ export default function CTASection() {
           <div className="relative grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-              ¿Listo para transformar{' '}
-                <span className="text-highlight">tu operación</span>?
+                {t('cta.title')}
               </h2>
               <p className="text-lg text-white/60 leading-relaxed mb-8">
-                Agenda una consulta gratuita con nosotros. Analizaremos tu situación y propondremos un camino claro hacia la automatización.
+                {t('cta.subtitle')}
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-white/80">
                   <CheckCircle className="w-5 h-5 text-highlight" />
-                  <span>Consulta inicial sin compromiso</span>
+                  <span>{t('cta.feature_1')}</span>
                 </div>
                 <div className="flex items-center gap-3 text-white/80">
                   <CheckCircle className="w-5 h-5 text-highlight" />
-                  <span>Análisis de oportunidades de automatización</span>
+                  <span>{t('cta.feature_2')}</span>
                 </div>
               </div>
             </div>
