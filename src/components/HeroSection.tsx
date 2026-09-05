@@ -216,19 +216,19 @@ export default function HeroSection({
   return (
     <section
       ref={heroRef as React.RefObject<HTMLElement>}
-      className="relative min-h-screen pt-24 lg:pt-28 pb-20 lg:pb-32 overflow-hidden"
+      className="relative min-h-screen pt-24 lg:pt-24 pb-20 lg:pb-32 overflow-hidden"
     >
       <div className="absolute inset-0 gradient-mesh" />
       <div className="absolute inset-0 grid-pattern opacity-50" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative max-w-7xl mx-auto px-4 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div
             className="text-center lg:text-left space-y-8"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <h1
-              className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold !leading-[1.2] tracking-tight text-balance animate-slide-up"
+              className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold !leading-[1.2] tracking-tight text-balance animate-slide-up"
               style={{ fontFamily: "'Inter Tight', sans-serif" }}
             >
               
