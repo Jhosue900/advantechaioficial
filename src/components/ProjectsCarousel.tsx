@@ -49,11 +49,11 @@ export default function ProjectsCarousel() {
             <div className="p-4 md:p-6">
               <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
                 {/* 👇 IMAGEN GRANDE (lado izquierdo) */}
-                <div className="lg:w-1/2 relative overflow-hidden rounded-xl bg-gradient-to-br from-accent/5 to-highlight/5">
+                <div className="lg:w-7/12 relative overflow-hidden rounded-xl bg-gradient-to-br from-accent/5 to-highlight/5">
                   <img
                     src={imageUrl}
                     alt={`Portada del proyecto ${project.title}`}
-                    className="w-full h-64 md:h-80 lg:h-[400px] object-cover"
+                    className="w-full h-64 md:h-80 lg:h-[440px] object-cover"
                     loading="lazy"
                     width="800"
                     height="600"
@@ -61,7 +61,7 @@ export default function ProjectsCarousel() {
                 </div>
 
                 {/* 👇 Información (lado derecho) */}
-                <div className="lg:w-1/2 flex flex-col justify-between space-y-4 py-2">
+                <div className="lg:w-5/12 flex flex-col justify-between space-y-4 py-2">
                   <div className="space-y-4">
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="text-xs font-semibold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full">
