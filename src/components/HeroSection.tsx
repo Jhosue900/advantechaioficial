@@ -228,7 +228,7 @@ export default function HeroSection({
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             <h1
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold !leading-[1.2] tracking-tight text-balance animate-slide-up"
+              className="text-[2.2rem] md:text-4xl lg:text-5xl xl:text-5xl font-bold !leading-[1.2] tracking-tight text-balance animate-slide-up"
               style={{ fontFamily: "'Inter Tight', sans-serif" }}
             >
               
